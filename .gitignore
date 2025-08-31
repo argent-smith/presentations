@@ -1,0 +1,62 @@
+# Временные файлы презентаций
+*.tmp
+*.temp
+~$*
+
+# PowerPoint временные файлы
+~*.ppt*
+
+# Слайды и экспорты
+*.pptx
+*.ppt
+*.pdf
+*.keynote
+
+# Изображения (если сгенерированные)
+generated_images/
+exports/
+
+# Заметки докладчика
+notes/
+speaker_notes/
+*.notes
+
+# Видео и аудио записи
+*.mp4
+*.avi
+*.mov
+*.mp3
+*.wav
+recordings/
+
+# Системные файлы
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE и редакторы
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Claude Code конфиги
+.claude/
+
+# Логи
+*.log
+logs/
+
+# Временные папки
+tmp/
+temp/
+cache/
+
+# Backup файлы
+*.bak
+*.backup
+*_backup
+
+CLAUDE.md
