@@ -6,12 +6,6 @@
 # PowerPoint временные файлы
 ~*.ppt*
 
-# Слайды и экспорты
-*.pptx
-*.ppt
-*.pdf
-*.keynote
-
 # Изображения (если сгенерированные)
 generated_images/
 exports/
