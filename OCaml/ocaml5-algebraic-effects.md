@@ -65,12 +65,10 @@ let _ = IntState.run ~init:0 (fun () ->
 
 ```ocaml
 (* Deep: обработчик применяется ко всем perform внутри *)
-try_with computation ()
-{ effc = fun eff -> match eff with
-    | Yield -> Some (fun k -> 
-        (* Этот же обработчик будет применён при continue k *)
-        continue k ())
-    | _ -> None }
+try computation () with
+| effect Yield, k ->
+    (* Этот же обработчик будет применён при continue k *)
+    continue k ()
 ```
 
 **Shallow handlers** (модуль `Effect.Shallow`) — обрабатывают **только первый эффект**. Продолжение не включает обработчик; программист должен явно указать новый обработчик при возобновлении.
@@ -82,7 +80,7 @@ let rec loop state k =
   { retc = Fun.id;
     exnc = raise;
     effc = fun eff -> match eff with
-      | Send n -> Some (fun k -> 
+      | Send n -> Some (fun k ->
           (* Можем сменить обработчик или состояние *)
           loop_recv n k ())
       | _ -> None }
@@ -110,6 +108,7 @@ Deep handlers соответствуют оператору `shift₀`, shallow 
 - **2021**: «Retrofitting Effect Handlers onto OCaml» (PLDI) — формализация и имплементация эффектов
 - **Декабрь 2022**: OCaml 5.0 — первый стабильный релиз с multicore и эффектами
 - **Январь 2025**: OCaml 5.3 — нативный синтаксис для deep handlers
+- **Октябрь 2025**: OCaml 5.4 — улучшения runtime и новые возможности
 
 ### Объявление эффектов через extensible variants
 
@@ -129,7 +128,7 @@ type _ Effect.t += Yield : unit t
 type _ Effect.t += Fork : (unit -> unit) -> unit t
 
 (* Несколько эффектов в модуле *)
-type _ Effect.t += 
+type _ Effect.t +=
   | Send : int -> unit Effect.t
   | Recv : int Effect.t
 ```
@@ -138,30 +137,32 @@ type _ Effect.t +=
 
 ### API модулей Effect.Deep и Effect.Shallow
 
+В OCaml 5.3+ рекомендуется использовать новый синтаксис `try...with | effect...` для deep handlers. Старый API с `match_with` и `try_with` остаётся доступным для обратной совместимости.
+
 ```ocaml
 module Effect : sig
   type 'a t = 'a eff = ..  (* Extensible variant *)
-  
+
   exception Unhandled : 'a t -> exn
   exception Continuation_already_resumed
-  
+
   val perform : 'a t -> 'a
-  
+
   module Deep : sig
     type ('a, 'b) continuation
     val continue : ('a, 'b) continuation -> 'a -> 'b
     val discontinue : ('a, 'b) continuation -> exn -> 'b
-    
+
     type ('a, 'b) handler = {
       retc : 'a -> 'b;           (* Обработчик значения *)
       exnc : exn -> 'b;          (* Обработчик исключения *)
       effc : 'c. 'c Effect.t -> (('c, 'b) continuation -> 'b) option;
     }
-    
+
     val match_with : ('c -> 'a) -> 'c -> ('a, 'b) handler -> 'b
     val try_with : ('b -> 'a) -> 'b -> 'a effect_handler -> 'a
   end
-  
+
   module Shallow : sig
     type ('a, 'b) continuation
     val fiber : ('a -> 'b) -> ('a, 'b) continuation
@@ -177,10 +178,15 @@ end
 
 ```ocaml
 (* Старый API-стиль (5.0-5.2) *)
-try_with comp1 () { effc = fun (type a) (eff: a t) ->
-  match eff with
-  | Xchg n -> Some (fun (k: (a, _) continuation) -> continue k (n+1))
-  | _ -> None }
+open Effect.Deep
+
+match_with comp1 ()
+{ retc = Fun.id;
+  exnc = raise;
+  effc = fun (type a) (eff: a t) ->
+    match eff with
+    | Xchg n -> Some (fun (k: (a, _) continuation) -> continue k (n+1))
+    | _ -> None }
 
 (* Новый синтаксис (5.3+) *)
 try comp1 () with
@@ -238,8 +244,13 @@ handler     frames      frames
 OCaml использует **однократные (линейные) продолжения**:
 
 ```ocaml
+open Effect
+open Effect.Deep
+
+type _ Effect.t += Xchg : int -> int t
+
 try perform (Xchg 0) with
-| effect Xchg n, k -> continue k 21 + continue k 21
+| effect (Xchg n), k -> continue k 21 + continue k 21
 (* Exception: Stdlib.Effect.Continuation_already_resumed *)
 ```
 
@@ -279,10 +290,10 @@ let run main =
   let q = Queue.create () in
   let enqueue k v = Queue.push (fun () -> continue k v) q in
   let dequeue () = if Queue.is_empty q then () else Queue.pop q () in
-  
+
   let rec spawn f =
     match f () with
-    | () -> dequeue ()
+    | v -> dequeue ()
     | exception e -> print_endline (Printexc.to_string e); dequeue ()
     | effect Yield, k -> enqueue k (); dequeue ()
     | effect (Fork f), k -> enqueue k (); spawn f
@@ -343,8 +354,8 @@ let generate (type elt) iter container : elt Seq.t =
     type _ Effect.t += Yield : elt -> unit Effect.t
   end in
   let yield v = perform (M.Yield v) in
-  
-  fun () -> 
+
+  fun () ->
     let k = fiber (fun () -> iter yield container) in
     let rec next k =
       continue_with k () {
@@ -379,7 +390,7 @@ let run main =
   let q = Queue.create () in
   let enqueue t = Queue.push t q in
   let dequeue () = if Queue.is_empty q then () else Queue.pop q () in
-  
+
   let rec spawn pr f =
     match f () with
     | v ->
@@ -387,6 +398,7 @@ let run main =
         pr := Done v;
         List.iter (fun k -> enqueue (fun () -> continue k v)) waiters;
         dequeue ()
+    | exception e -> raise e
     | effect (Async f), k ->
         let pr = ref (Waiting []) in
         enqueue (fun () -> spawn pr f);
@@ -397,6 +409,120 @@ let run main =
         | Waiting l -> pr := Waiting (k :: l); dequeue ()
   in spawn (ref (Waiting [])) main
 ```
+
+### Эмуляция Lwt через эффекты
+
+Lwt — классическая монадическая библиотека для асинхронности в OCaml. С эффектами можно получить тот же функционал в прямом стиле без монадных операторов.
+
+**Lwt-стиль (монады):**
+
+```ocaml
+open Lwt.Syntax
+
+let fetch_and_process url =
+  let* response = Http.get url in
+  let* data = Http.read_body response in
+  let processed = process data in
+  Lwt.return processed
+```
+
+**Effect-based стиль (прямой):**
+
+```ocaml
+open Effect.Deep
+
+type _ Effect.t +=
+  | Async : (unit -> 'a) -> 'a Effect.t
+  | Sleep : float -> unit Effect.t
+
+let async f = perform (Async f)
+let sleep duration = perform (Sleep duration)
+
+(* Код выглядит синхронным, но выполняется асинхронно *)
+let fetch_and_process url =
+  let response = async (fun () -> Http.get url) in
+  let data = async (fun () -> Http.read_body response) in
+  let processed = process data in
+  processed
+
+(* Lwt-подобный планировщик с временем *)
+let run main =
+  let ready_queue = Queue.create () in
+  let sleep_queue = ref [] in (* (wakeup_time, continuation) list *)
+
+  let enqueue k v = Queue.push (fun () -> continue k v) ready_queue in
+  let get_time () = Unix.gettimeofday () in
+
+  let rec schedule () =
+    (* Проверяем sleep_queue *)
+    let now = get_time () in
+    let (woken, still_sleeping) =
+      List.partition (fun (time, _) -> time <= now) !sleep_queue in
+    sleep_queue := still_sleeping;
+    List.iter (fun (_, k) -> enqueue k ()) woken;
+
+    (* Запускаем следующую задачу *)
+    if Queue.is_empty ready_queue then
+      (* Если нет готовых, но есть спящие — ждём *)
+      match !sleep_queue with
+      | [] -> ()
+      | (next_wake, _) :: _ ->
+          let wait_time = next_wake -. now in
+          if wait_time > 0.0 then Unix.sleepf wait_time;
+          schedule ()
+    else
+      (Queue.pop ready_queue) ()
+
+  and spawn f =
+    match f () with
+    | v -> schedule ()
+    | exception e -> raise e
+    | effect (Async f), k ->
+        enqueue k (f ());
+        schedule ()
+    | effect (Sleep duration), k ->
+        let wake_time = get_time () +. duration in
+        sleep_queue := (wake_time, k) :: !sleep_queue;
+        schedule ()
+  in
+  spawn main
+
+(* Пример использования *)
+let example () =
+  Printf.printf "Task 1: start\n";
+  sleep 1.0;
+  Printf.printf "Task 1: after 1s\n";
+
+  let result = async (fun () ->
+    Printf.printf "Task 2: computing\n";
+    sleep 0.5;
+    Printf.printf "Task 2: done\n";
+    42
+  ) in
+
+  Printf.printf "Task 1: got %d\n" result
+
+let () = run example
+(* Output:
+   Task 1: start
+   Task 2: computing
+   Task 2: done
+   Task 1: after 1s
+   Task 1: got 42
+*)
+```
+
+**Ключевые отличия от Lwt:**
+
+| Аспект | Lwt | Effects |
+|--------|-----|---------|
+| **Стиль** | Монадический (`let*`, `>>=`) | Прямой (как sync код) |
+| **Композиция** | Через `bind` и `map` | Обычные функции |
+| **Backtraces** | Теряются через bind | Сохраняются полностью |
+| **Обработка ошибок** | `Lwt.catch`, специальные комбинаторы | Обычный `try/with` |
+| **Интеграция** | Весь код должен быть в `Lwt.t` | Эффекты изолированы в handler |
+
+Эффекты позволяют писать асинхронный код, который выглядит и ведёт себя как обычный синхронный, но при этом не блокирует выполнение.
 
 ### Транзакционная память
 
@@ -412,10 +538,9 @@ let atomically f =
     | x -> (fun _ -> x)
     | exception e -> (fun rb -> rb (); raise e)
     | effect (Update (r, v)), k ->
-        (fun rb ->
-          let old = !r in
-          r := v;
-          continue k () (fun () -> r := old; rb ()))
+        let old = !r in
+        r := v;
+        (fun rb -> continue k () (fun () -> r := old; rb ()))
   in comp (fun () -> ())
 
 (* При исключении все изменения откатываются *)
@@ -438,14 +563,14 @@ open Eio.Std
 
 let main env =
   let clock = Eio.Stdenv.clock env in
-  
+
   Fiber.both
-    (fun () -> 
+    (fun () ->
       traceln "Task 1 starting";
       Eio.Time.sleep clock 1.0;
       traceln "Task 1 done")
     (fun () ->
-      traceln "Task 2 starting"; 
+      traceln "Task 2 starting";
       Eio.Time.sleep clock 0.5;
       traceln "Task 2 done")
 

@@ -180,7 +180,7 @@ end
 module Set = functor (Elt : ORDERED) -> struct
   type elt = Elt.t
   type t = elt list
-  
+
   let empty = []
   let mem x s = List.exists (fun y -> Elt.compare x y = 0) s
   let add x s = if mem x s then s else x :: s
@@ -336,7 +336,7 @@ let result = Task.await pool promise
 
 ```ocaml
 (* Определяем effect *)
-type _ Effect.t += 
+type _ Effect.t +=
   | Xchg : int -> int Effect.t
 
 (* Perform effect *)
@@ -345,15 +345,10 @@ let comp1 () =
   let v2 = Effect.perform (Xchg 1) in
   v1 + v2
 
-(* Handle effect *)
-let result = 
-  Effect.Deep.try_with comp1 ()
-    { effc = fun (type a) (eff : a Effect.t) ->
-        match eff with
-        | Xchg n -> Some (fun (k : (a, _) continuation) ->
-            Effect.Deep.continue k (n + 1))
-        | _ -> None
-    }
+(* Handle effect — новый синтаксис OCaml 5.3+ *)
+let result =
+  try comp1 () with
+  | effect (Xchg n), k -> Effect.Deep.continue k (n + 1)
 ```
 
 ### Delimited continuations через fibers
@@ -405,10 +400,10 @@ let k_copy = Obj.clone_continuation k
 
 **Deep handler** (default) — обрабатывает все effects до завершения:
 ```ocaml
-Effect.Deep.try_with comp ()
-  { effc = fun (type a) (eff : a Effect.t) ->
-      (* Handles ALL effects from comp *)
-  }
+(* Новый синтаксис OCaml 5.3+ *)
+try comp () with
+| effect SomeEffect, k -> (* Handles ALL effects from comp *)
+    Effect.Deep.continue k result
 ```
 
 **Shallow handler** — обрабатывает один effect, затем возвращает контроль:
@@ -425,14 +420,11 @@ type _ Effect.t += Yield : 'a -> unit Effect.t
 let generator fn =
   let module E = Effect.Deep in
   let rec step = ref (fun () ->
-    E.try_with fn ()
-      { effc = fun (type a) (eff : a Effect.t) ->
-          match eff with
-          | Yield v -> Some (fun (k : (a, _) continuation) ->
-              step := (fun () -> E.continue k ());
-              Some v)
-          | _ -> None
-      }
+    match fn () with
+    | v -> None
+    | effect (Yield v), k ->
+        step := (fun () -> E.continue k ());
+        Some v
   ) in
   fun () -> !step ()
 ```
@@ -445,15 +437,15 @@ let async f = Effect.perform (Async f)
 
 let scheduler () =
   let queue = Queue.create () in
-  Effect.Deep.match_with main ()
-    { effc = fun (type a) (eff : a Effect.t) ->
-        match eff with
-        | Async f -> Some (fun k ->
-            Queue.push (fun () -> E.continue k (f ())) queue;
-            (* Run next *)
-            (Queue.pop queue) ())
-        | _ -> None
-    }
+  let rec run_queue () =
+    match main () with
+    | v -> v
+    | exception e -> raise e
+    | effect (Async f), k ->
+        Queue.push (fun () -> Effect.Deep.continue k (f ())) queue;
+        (* Run next *)
+        (Queue.pop queue) ()
+  in run_queue ()
 ```
 
 **3. State без монад:**
@@ -752,7 +744,7 @@ module type AbstractDomain = sig
 end
 
 module Analyzer (Domain : AbstractDomain) = struct
-  let analyze cfg = 
+  let analyze cfg =
     (* Fixed-point iteration over control flow graph *)
     fixpoint Domain.join (transfer_function cfg)
 end
@@ -780,7 +772,7 @@ end
 **Безопасность через типы:**
 ```ocaml
 (* Network stack typed by protocol *)
-type 'a network_layer = 
+type 'a network_layer =
   | TCP : tcp_config -> tcp network_layer
   | UDP : udp_config -> udp network_layer
 
@@ -812,7 +804,7 @@ type 'a network_layer =
 ```ocaml
 (* Simplified crawler pipeline *)
 let crawl_pipeline url =
-  url 
+  url
   |> fetch_page
   |> parse_html
   |> extract_links
@@ -854,7 +846,7 @@ type transaction = {
 
 let validate_transaction tx state =
   match get_balance state tx.source with
-  | Some balance when balance >= tx.amount -> 
+  | Some balance when balance >= tx.amount ->
       Ok (apply_transaction tx state)
   | _ -> Error Insufficient_funds
 ```
