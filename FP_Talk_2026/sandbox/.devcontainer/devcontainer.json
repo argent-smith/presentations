@@ -1,0 +1,21 @@
+{
+  "name": "FP Talk 2026 Sandbox",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "workspaceFolder": "/sandbox",
+  "mounts": [
+    "source=${localWorkspaceFolder}/FP_Talk_2026/sandbox,target=/sandbox,type=bind"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ocamllabs.ocaml-platform",
+        "scala-lang.scala",
+        "rust-lang.rust-analyzer",
+        "ms-python.python"
+      ]
+    }
+  },
+  "postCreateCommand": "make build"
+}
