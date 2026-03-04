@@ -1,0 +1,9 @@
+services:
+  sandbox:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ..:/sandbox
+    working_dir: /sandbox
+    command: sleep infinity

@@ -1,12 +1,9 @@
 {
   "name": "FP Talk 2026 Sandbox",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "sandbox",
   "workspaceFolder": "/sandbox",
-  "mounts": [
-    "source=${localWorkspaceFolder}/FP_Talk_2026/sandbox,target=/sandbox,type=bind"
-  ],
+  "shutdownAction": "stopCompose",
   "customizations": {
     "vscode": {
       "extensions": [
