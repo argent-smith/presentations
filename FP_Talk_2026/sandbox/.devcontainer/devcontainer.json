@@ -1,7 +1,7 @@
 {
   "name": "FP Talk 2026 Sandbox",
   "dockerComposeFile": "docker-compose.yml",
-  "service": "sandbox",
+  "service": "dev",
   "workspaceFolder": "/sandbox",
   "shutdownAction": "stopCompose",
   "customizations": {

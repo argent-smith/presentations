@@ -1,0 +1,15 @@
+FROM eclipse-temurin:21-jre-alpine
+# CVE-2026-25646: libpng 1.6.54-r0 → фикс в 1.6.55-r0, уже доступен в Alpine
+# gcompat — слой совместимости glibc, нужен для нативного бинаря scala-cli на musl
+RUN apk upgrade --no-cache libpng \
+    && apk add --no-cache curl gcompat \
+    && curl -fsSL https://github.com/VirtusLab/scala-cli/releases/latest/download/scala-cli-x86_64-pc-linux.gz \
+       | gzip -d > /usr/local/bin/scala-cli \
+    && chmod +x /usr/local/bin/scala-cli \
+    && apk del --purge curl \
+    && rm -rf /var/cache/apk/*
+# Прогрев: скачать компилятор Scala во время сборки образа, не во время доклада
+RUN printf 'println("warmup")' > /tmp/warmup.sc \
+    && scala-cli /tmp/warmup.sc \
+    && rm /tmp/warmup.sc
+WORKDIR /sandbox

@@ -1,5 +1,46 @@
 services:
-  sandbox:
+  ocaml:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile-ocaml
+    volumes:
+      - ..:/sandbox
+    working_dir: /sandbox
+
+  scala:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile-scala
+    volumes:
+      - ..:/sandbox
+    working_dir: /sandbox
+
+  rust:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile-rust
+    volumes:
+      - ..:/sandbox
+    working_dir: /sandbox
+
+  python:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile-python
+    volumes:
+      - ..:/sandbox
+    working_dir: /sandbox
+
+  js:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile-js
+    volumes:
+      - ..:/sandbox
+    working_dir: /sandbox
+
+  # Сервис для VS Code devcontainer — полный образ со всеми рантаймами
+  dev:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile

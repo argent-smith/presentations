@@ -8,17 +8,22 @@
 ```
 sandbox/
 ├── .devcontainer/
-│   ├── Dockerfile          # образ с пятью рантаймами
-│   ├── docker-compose.yml  # монтирует sandbox/ в /sandbox, держит контейнер живым
-│   └── devcontainer.json   # настройки VS Code devcontainer
-├── Makefile                # основные команды
-├── run.sh                  # runner для одного свойства
-├── bin/                    # скомпилированные Rust-бинари (make build)
-├── 01_functions/           # Свойство 1: функции как значения
-├── 02_referential/         # Свойство 2: ссылочная прозрачность
-├── 03_immutability/        # Свойство 3: иммутабельность
-├── 04_declarative/         # Свойство 4: декларативность
-└── 05_expressions/         # Свойство 5: выражения вместо инструкций
+│   ├── Dockerfile           # all-in-one образ для VS Code devcontainer
+│   ├── Dockerfile-ocaml     # alpine:3.21 + ocaml
+│   ├── Dockerfile-scala     # Eclipse JRE 21 Alpine + glibc compat + scala-cli
+│   ├── Dockerfile-rust      # rust:alpine
+│   ├── Dockerfile-python    # python:3.12-alpine
+│   ├── Dockerfile-js        # node:lts-alpine
+│   ├── docker-compose.yml   # 5 языковых сервисов + dev (для devcontainer)
+│   └── devcontainer.json    # VS Code devcontainer → сервис dev
+├── Makefile                 # единственный интерфейс управления
+├── run.sh                   # runner для одного свойства (вызывается из make)
+├── bin/                     # скомпилированные Rust-бинари (make build)
+├── 01_functions/            # Свойство 1: функции как значения
+├── 02_referential/          # Свойство 2: ссылочная прозрачность
+├── 03_immutability/         # Свойство 3: иммутабельность
+├── 04_declarative/          # Свойство 4: декларативность
+└── 05_expressions/          # Свойство 5: выражения вместо инструкций
 ```
 
 Каждая директория свойства содержит пять файлов:
@@ -26,86 +31,86 @@ sandbox/
 
 ---
 
-## Запуск из командной строки
+## Архитектура
 
-Все команды выполняются из корня репозитория (папки `presentations/`).
+Каждый язык запускается в отдельном минимальном контейнере:
 
-### 1. Собрать образ
+| Сервис   | Образ                                | Команда     |
+|----------|--------------------------------------|-------------|
+| `ocaml`  | `alpine:3.21`                        | `ocaml`     |
+| `scala`  | Eclipse JRE 21 Alpine + glibc compat | `scala-cli` |
+| `rust`   | `rust:alpine`                        | `rustc`     |
+| `python` | `python:3.12-alpine`                 | `python3`   |
+| `js`     | `node:lts-alpine`                    | `node`      |
+| `dev`    | all-in-one (для devcontainer)        | —           |
+
+`make pN` запускает пять контейнеров последовательно через `docker compose run --rm`.
+Файлы `sandbox/` смонтированы во все контейнеры через bind mount.
+
+---
+
+## Подготовка (один раз)
+
+Из папки `sandbox/`:
 
 ```bash
-docker compose -f FP_Talk_2026/sandbox/.devcontainer/docker-compose.yml build
+make build
 ```
 
-Выполняется один раз. При изменении Dockerfile — повторить.
+Выполняет:
 
-### 2. Запустить контейнер в фоне
+1. Сборку всех шести образов (`docker compose build`).
+   Образ `scala` при сборке скачивает компилятор Scala — задержки во время доклада не будет.
+2. Компиляцию Rust-примеров в `bin/` через контейнер `rust`.
+
+---
+
+## Использование во время доклада
 
 ```bash
-docker compose -f FP_Talk_2026/sandbox/.devcontainer/docker-compose.yml up -d
+make p1   # Свойство 1: функции как значения
+make p2   # Свойство 2: ссылочная прозрачность
+make p3   # Свойство 3: иммутабельность
+make p4   # Свойство 4: декларативность
+make p5   # Свойство 5: выражения вместо инструкций
 ```
 
-Контейнер держится живым (`sleep infinity`). Файлы `sandbox/` смонтированы
-в `/sandbox` — изменения в файлах немедленно доступны внутри контейнера.
-
-### 3. Скомпилировать Rust-примеры
+Прогнать всё для проверки:
 
 ```bash
-docker compose -f FP_Talk_2026/sandbox/.devcontainer/docker-compose.yml \
-  exec sandbox make build
+make all
 ```
 
-Выполняется один раз перед докладом. Бинари сохраняются в `sandbox/bin/`
-и доступны через bind mount при следующих запусках.
-
-### 4. Запускать примеры
+Очистить скомпилированные Rust-файлы:
 
 ```bash
-# Одно свойство
-docker compose -f FP_Talk_2026/sandbox/.devcontainer/docker-compose.yml \
-  exec sandbox make p1
-
-# Все свойства подряд
-docker compose -f FP_Talk_2026/sandbox/.devcontainer/docker-compose.yml \
-  exec sandbox make all
-```
-
-### 5. Интерактивная оболочка
-
-```bash
-docker compose -f FP_Talk_2026/sandbox/.devcontainer/docker-compose.yml \
-  exec sandbox bash
-```
-
-Внутри оболочки можно запускать файлы напрямую:
-
-```bash
-ocaml     01_functions/ocaml.ml
-scala-cli 01_functions/scala.sc
-./bin/01_functions
-python3   01_functions/python.py
-node      01_functions/javascript.js
-```
-
-### 6. Остановить контейнер
-
-```bash
-docker compose -f FP_Talk_2026/sandbox/.devcontainer/docker-compose.yml down
-```
-
-### Сокращённый вариант: работать из папки sandbox
-
-```bash
-cd FP_Talk_2026/sandbox
-
-docker compose -f .devcontainer/docker-compose.yml up -d
-docker compose -f .devcontainer/docker-compose.yml exec sandbox make build
-docker compose -f .devcontainer/docker-compose.yml exec sandbox make p1
-docker compose -f .devcontainer/docker-compose.yml down
+make clean
 ```
 
 ---
 
-## Запуск из VS Code (devcontainer)
+## Команды Makefile
+
+| Команда      | Действие                                              |
+|--------------|-------------------------------------------------------|
+| `make build` | собрать образы + скомпилировать Rust в `bin/`         |
+| `make p1`    | Свойство 1: функции как значения                      |
+| `make p2`    | Свойство 2: ссылочная прозрачность                    |
+| `make p3`    | Свойство 3: иммутабельность                           |
+| `make p4`    | Свойство 4: декларативность                           |
+| `make p5`    | Свойство 5: выражения вместо инструкций               |
+| `make all`   | запустить все пять свойств подряд                     |
+| `make clean` | удалить скомпилированные файлы из `bin/`              |
+| `make`       | вывести справку                                       |
+
+`make pN` не перекомпилирует Rust — ожидает готовый исполняемый файл в `bin/`.
+Если файлов в `bin/` нет, блок Rust упадёт, остальные четыре языка отработают нормально.
+
+---
+
+## VS Code devcontainer
+
+Для редактирования и запуска кода внутри VS Code:
 
 ### Требования
 
@@ -114,15 +119,17 @@ docker compose -f .devcontainer/docker-compose.yml down
 
 ### Порядок действий
 
-1. Открыть в VS Code папку `FP_Talk_2026/sandbox/` (не весь репозиторий).
-2. VS Code обнаружит `.devcontainer/` и предложит "Reopen in Container" — согласиться.
-   Либо вызвать команду палитры: `Dev Containers: Reopen in Container`.
-3. При первом открытии образ собирается автоматически (~2–5 минут).
-4. После запуска контейнера автоматически выполнится `make build` (компиляция Rust).
+1. Открыть в VS Code папку `FP_Talk_2026/sandbox/`.
+2. Принять предложение "Reopen in Container" или вызвать команду
+   `Dev Containers: Reopen in Container`.
+3. При первом открытии образ `dev` собирается автоматически (~2–5 минут).
+4. После запуска автоматически выполнится `make build`.
 
-### Сценарий во время доклада
+Devcontainer использует сервис `dev` — all-in-one образ со всеми рантаймами.
+Языковые контейнеры при этом не запускаются; `make pN` внутри devcontainer
+запускает их через `docker compose run` так же, как и из CLI.
 
-Рекомендуемый layout: две панели редактора + terminal.
+### Layout во время доклада
 
 ```
 ┌─────────────────────────────┬──────────────────────────────────┐
@@ -142,39 +149,56 @@ docker compose -f .devcontainer/docker-compose.yml down
 └─────────────────────────────┴──────────────────────────────────┘
 ```
 
-Между свойствами: переключить файл в левой панели и набрать `make p2` и т.д.
-
 ---
 
-## Команды Makefile
+## Интерактивный REPL
 
-| Команда      | Действие                                    |
-|--------------|---------------------------------------------|
-| `make build` | скомпилировать Rust-примеры в `bin/`        |
-| `make p1`    | Свойство 1: функции как значения            |
-| `make p2`    | Свойство 2: ссылочная прозрачность          |
-| `make p3`    | Свойство 3: иммутабельность                 |
-| `make p4`    | Свойство 4: декларативность                 |
-| `make p5`    | Свойство 5: выражения вместо инструкций     |
-| `make all`   | запустить все пять свойств подряд           |
-| `make`       | вывести справку                             |
+Четыре языка поддерживают интерактивный режим. Команды запускают соответствующий
+контейнер и подключают терминал:
 
-`make pN` не перекомпилирует Rust — ожидает готовый исполняемый файл в `bin/`.
-Если файлов в `bin/` нет, блок Rust упадёт, остальные четыре языка отработают нормально.
+```bash
+make repl-ocaml   # ocaml top-level
+make repl-scala   # scala-cli repl
+make repl-python  # python3
+make repl-js      # node
+```
 
----
+Rust интерактивного REPL не имеет — примеры запускаются через `make pN`.
 
-## Рантаймы в образе
+### Примеры для самостоятельного изучения
 
-| Язык       | Инструмент    | Стратегия запуска                        |
-|------------|---------------|------------------------------------------|
-| OCaml      | `ocaml`       | интерпретатор, без компиляции            |
-| Scala      | `scala-cli`   | компилирует `.sc` на лету                |
-| Rust       | `rustc`       | компилируется заранее через `make build` |
-| Python     | `python3`     | интерпретатор                            |
-| JavaScript | `node`        | интерпретатор                            |
+**OCaml** (`make repl-ocaml`):
 
-Rust компилируется заранее, чтобы исключить задержку во время доклада.
+```ocaml
+let multiply factor x = factor * x;;
+let triple = multiply 3;;
+List.map triple [1; 2; 3; 4; 5];;
+```
+
+**Scala** (`make repl-scala`):
+
+```scala
+def multiply(factor: Int)(x: Int) = factor * x
+val triple = multiply(3)
+(1 to 5).toList.map(triple)
+```
+
+**Python** (`make repl-python`):
+
+```python
+from functools import partial
+def multiply(factor, x): return factor * x
+triple = partial(multiply, 3)
+list(map(triple, [1, 2, 3, 4, 5]))
+```
+
+**JavaScript** (`make repl-js`):
+
+```javascript
+const multiply = factor => x => factor * x
+const triple = multiply(3)
+[1, 2, 3, 4, 5].map(triple)
+```
 
 ---
 
