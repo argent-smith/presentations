@@ -57,3 +57,12 @@ CLAUDE.md
 
 # Obsidian
 .obsidian/
+
+# Scala / scala-cli технические папки
+.scala-build/
+.bsp/
+.metals/
+.ammonite/
+
+# Артефакты сборки sandbox
+FP_Talk_2026/sandbox/bin/

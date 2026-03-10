@@ -1,0 +1,2 @@
+FROM rust:alpine
+WORKDIR /sandbox
