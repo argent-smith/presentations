@@ -49,7 +49,7 @@ clean:
 	rm -f bin/*
 
 repl-ocaml:
-	$(COMPOSE) run --rm -it --no-deps ocaml ocaml
+	$(COMPOSE) run --rm -it --no-deps ocaml utop
 
 repl-scala:
 	$(COMPOSE) run --rm -it --no-deps scala scala-cli repl

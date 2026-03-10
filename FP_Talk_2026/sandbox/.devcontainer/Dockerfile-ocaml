@@ -1,3 +1,7 @@
-FROM alpine:3.21
-RUN apk add --no-cache ocaml
+FROM ocaml/opam:debian-12-ocaml-5.3
+
+# UTop используется как REPL по умолчанию для интерактивной демонстрации
+RUN opam update \
+	&& opam install -y utop
+
 WORKDIR /sandbox

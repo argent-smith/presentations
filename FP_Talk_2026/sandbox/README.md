@@ -37,8 +37,8 @@ sandbox/
 
 | Сервис   | Образ                                | Команда     |
 |----------|--------------------------------------|-------------|
-| `ocaml`  | `alpine:3.21`                        | `ocaml`     |
-| `scala`  | Eclipse JRE 21 Alpine + glibc compat | `scala-cli` |
+| `ocaml`  | `ocaml/opam:debian-12-ocaml-5.3`    | `ocaml`     |
+| `scala`  | `debian:bookworm-slim` + OpenJDK 17 | `scala-cli` |
 | `rust`   | `rust:alpine`                        | `rustc`     |
 | `python` | `python:3.12-alpine`                 | `python3`   |
 | `js`     | `node:lts-alpine`                    | `node`      |
@@ -167,7 +167,7 @@ Rust интерактивного REPL не имеет — примеры зап
 
 ### Примеры для самостоятельного изучения
 
-**OCaml** (`make repl-ocaml`):
+**OCaml** (`make repl-ocaml`, через `utop`):
 
 ```ocaml
 let multiply factor x = factor * x;;
