@@ -2,239 +2,11 @@
 marp: true
 paginate: true
 size: 16:9
-html: true
 ---
 
-<style>
-@font-face {
-  font-family: 'Montserrat';
-  src: url("template/шаблон презентации ульяновск 2026/шрифты/Montserrat-Regular.otf") format('opentype');
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Montserrat';
-  src: url("template/шаблон презентации ульяновск 2026/шрифты/Montserrat-Light.otf") format('opentype');
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Montserrat';
-  src: url("template/шаблон презентации ульяновск 2026/шрифты/Montserrat-SemiBold.otf") format('opentype');
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Montserrat';
-  src: url("template/шаблон презентации ульяновск 2026/шрифты/Montserrat-Bold.otf") format('opentype');
-  font-weight: 700;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Montserrat';
-  src: url("template/шаблон презентации ульяновск 2026/шрифты/Montserrat-ExtraBold.otf") format('opentype');
-  font-weight: 800;
-  font-style: normal;
-}
-
-section {
-  font-family: 'Montserrat', 'Segoe UI', sans-serif;
-  background: #ffffff;
-  color: #1D1D1D;
-  padding: 48px 64px;
-  font-size: 28px;
-  line-height: 1.5;
-}
-
-section h1 {
-  font-weight: 700;
-  font-size: 1.8em;
-  color: #1D1D1D;
-  border-bottom: 4px solid #ED7D31;
-  padding-bottom: 0.2em;
-  margin-bottom: 0.6em;
-}
-
-section h2 {
-  font-weight: 600;
-  font-size: 1.1em;
-  color: #44546A;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 0.4em;
-}
-
-section ul {
-  padding-left: 1.2em;
-  margin: 0.4em 0;
-}
-
-section li {
-  margin-bottom: 0.35em;
-}
-
-section strong {
-  color: #ED7D31;
-  font-weight: 600;
-}
-
-section blockquote {
-  border-left: 4px solid #ED7D31;
-  padding: 0.4em 1em;
-  color: #44546A;
-  font-style: italic;
-  margin: 1em 0;
-  background: #f5f5f5;
-  border-radius: 0 4px 4px 0;
-}
-
-section table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.85em;
-}
-
-section th {
-  background: #44546A;
-  color: #ffffff;
-  padding: 0.5em 0.8em;
-  text-align: left;
-  font-weight: 600;
-}
-
-section td {
-  padding: 0.4em 0.8em;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-section tr:nth-child(even) td {
-  background: #f8f8f8;
-}
-
-section code {
-  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
-  background: #2d2d2d;
-  color: #f8f8f2;
-  padding: 0.1em 0.3em;
-  border-radius: 3px;
-  font-size: 0.85em;
-}
-
-section pre {
-  background: #2d2d2d;
-  border-radius: 6px;
-  padding: 0.8em 1em;
-  overflow: hidden;
-  margin: 0.3em 0;
-}
-
-section pre code {
-  background: transparent;
-  padding: 0;
-  font-size: 0.75em;
-  line-height: 1.4;
-  color: #f8f8f2;
-}
-
-/* Syntax highlight approximation */
-section pre code .comment { color: #75715e; }
-
-/* Pagination */
-section::after {
-  font-size: 0.6em;
-  color: #aaaaaa;
-  font-weight: 300;
-}
-
-/* ---- Dark slides (title + section breaks) ---- */
-section.dark {
-  background: #44546A;
-  color: #ffffff;
-}
-
-section.dark h1 {
-  color: #ffffff;
-  border-bottom-color: #ED7D31;
-  font-size: 2em;
-}
-
-section.dark h2 {
-  color: #FFC000;
-  font-size: 1.0em;
-}
-
-section.dark strong {
-  color: #FFC000;
-}
-
-section.dark::after {
-  color: rgba(255,255,255,0.4);
-}
-
-section.dark p {
-  color: rgba(255,255,255,0.85);
-  font-weight: 300;
-}
-
-/* ---- Code slides ---- */
-section.code {
-  padding: 32px 48px;
-  font-size: 22px;
-}
-
-section.code h1 {
-  font-size: 1.2em;
-  margin-bottom: 0.4em;
-}
-
-.lang-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0.5em;
-  margin-top: 0.4em;
-}
-
-.lang-grid > div {
-  min-width: 0;
-}
-
-.lang-label {
-  font-size: 0.6em;
-  font-weight: 700;
-  color: #44546A;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.2em;
-}
-
-section.code pre code {
-  font-size: 0.62em;
-  line-height: 1.35;
-}
-
-/* ---- Section number badge ---- */
-.section-num {
-  display: inline-block;
-  background: #ED7D31;
-  color: #ffffff;
-  font-size: 0.75em;
-  font-weight: 700;
-  padding: 0.2em 0.6em;
-  border-radius: 4px;
-  margin-bottom: 0.5em;
-  letter-spacing: 0.05em;
-}
-
-/* ---- Summary table highlight ---- */
-.plus-three { color: #ED7D31; font-weight: 700; }
-.plus-two   { color: #44546A; font-weight: 600; }
-.plus-one   { color: #aaaaaa; }
-</style>
-
-<!-- _class: dark -->
 <!-- _paginate: false -->
 
-# Древняя магия<br>в повседневном коде
+# Древняя магия в повседневном коде
 
 ## Пять принципов ФП в пяти языках
 
@@ -267,10 +39,8 @@ section.code pre code {
 
 ---
 
-<!-- _class: dark -->
 <!-- _paginate: false -->
 
-<div class="section-num">Свойство 1 из 5</div>
 
 # Декларативность
 
@@ -291,7 +61,6 @@ section.code pre code {
 
 ---
 
-<!-- _class: code -->
 
 # Декларативность — OCaml
 
@@ -309,7 +78,6 @@ let total_discount orders =
 
 ---
 
-<!-- _class: code -->
 
 # Декларативность — Scala
 
@@ -326,7 +94,6 @@ def totalDiscount(orders: List[Order]): Double =
 
 ---
 
-<!-- _class: code -->
 
 # Декларативность — Rust
 
@@ -352,7 +119,6 @@ fn total_discount(orders: &[Order]) -> f64 {
 
 ---
 
-<!-- _class: code -->
 
 # Декларативность — Python
 
@@ -372,7 +138,6 @@ def total_discount(orders):
 
 ---
 
-<!-- _class: code -->
 
 # Декларативность — JavaScript
 
@@ -396,10 +161,8 @@ const totalDiscount = (orders) =>
 
 ---
 
-<!-- _class: dark -->
 <!-- _paginate: false -->
 
-<div class="section-num">Свойство 2 из 5</div>
 
 # Выражения вместо инструкций
 
@@ -423,7 +186,6 @@ const totalDiscount = (orders) =>
 
 ---
 
-<!-- _class: code -->
 
 # Выражения вместо инструкций — OCaml
 
@@ -442,7 +204,6 @@ let label = String.uppercase_ascii (classify (-5))
 
 ---
 
-<!-- _class: code -->
 
 # Выражения вместо инструкций — Scala
 
@@ -461,7 +222,6 @@ val label = classify(-5).toUpperCase
 
 ---
 
-<!-- _class: code -->
 
 # Выражения вместо инструкций — Rust
 
@@ -481,7 +241,6 @@ let label = classify(-5).to_uppercase();
 
 ---
 
-<!-- _class: code -->
 
 # Выражения вместо инструкций — Python
 
@@ -502,7 +261,6 @@ label = classify(-5).upper()
 
 ---
 
-<!-- _class: code -->
 
 # Выражения вместо инструкций — JavaScript
 
@@ -522,10 +280,8 @@ const label = classify(-5).toUpperCase();
 
 ---
 
-<!-- _class: dark -->
 <!-- _paginate: false -->
 
-<div class="section-num">Свойство 3 из 5</div>
 
 # Функции как значения
 
@@ -545,7 +301,6 @@ First-class value: передаётся аргументом, связывает
 
 ---
 
-<!-- _class: code -->
 
 # Функции как значения — OCaml
 
@@ -567,7 +322,6 @@ let result = List.map triple [1; 2; 3; 4; 5]
 
 ---
 
-<!-- _class: code -->
 
 # Функции как значения — Scala
 
@@ -588,7 +342,6 @@ val result = List(1, 2, 3, 4, 5).map(triple)
 
 ---
 
-<!-- _class: code -->
 
 # Функции как значения — Rust
 
@@ -611,7 +364,6 @@ let result: Vec<i32> =
 
 ---
 
-<!-- _class: code -->
 
 # Функции как значения — Python
 
@@ -637,7 +389,6 @@ def triple2(x): return x * 3
 
 ---
 
-<!-- _class: code -->
 
 # Функции как значения — JavaScript
 
@@ -658,10 +409,8 @@ const result = [1, 2, 3, 4, 5].map(triple);
 
 ---
 
-<!-- _class: dark -->
 <!-- _paginate: false -->
 
-<div class="section-num">Свойство 4 из 5</div>
 
 # Ссылочная прозрачность
 
@@ -686,7 +435,6 @@ const result = [1, 2, 3, 4, 5].map(triple);
 
 ---
 
-<!-- _class: code -->
 
 # Ссылочная прозрачность — OCaml
 
@@ -706,7 +454,6 @@ let discounted = apply_discount 0.1 100.0
 
 ---
 
-<!-- _class: code -->
 
 # Ссылочная прозрачность — Scala
 
@@ -722,7 +469,6 @@ def withLog(rate: Double, price: Double): IO[Double] =
 
 ---
 
-<!-- _class: code -->
 
 # Ссылочная прозрачность — Rust
 
@@ -741,7 +487,6 @@ fn apply_discount_mut(rate: f64, price: &mut f64) {
 
 ---
 
-<!-- _class: code -->
 
 # Ссылочная прозрачность — Python
 
@@ -759,7 +504,6 @@ def apply_discount(rate: float, price: float) -> float:
 
 ---
 
-<!-- _class: code -->
 
 # Ссылочная прозрачность — JavaScript
 
@@ -774,10 +518,8 @@ const applyDiscount = (rate) => (price) => price * (1 - rate);
 
 ---
 
-<!-- _class: dark -->
 <!-- _paginate: false -->
 
-<div class="section-num">Свойство 5 из 5</div>
 
 # Иммутабельность
 
@@ -795,7 +537,6 @@ const applyDiscount = (rate) => (price) => price * (1 - rate);
 
 ---
 
-<!-- _class: code -->
 
 # Иммутабельность — OCaml
 
@@ -816,7 +557,6 @@ let older = { user with age = 31 }
 
 ---
 
-<!-- _class: code -->
 
 # Иммутабельность — Scala
 
@@ -832,7 +572,6 @@ val older = user.copy(age = 31)
 
 ---
 
-<!-- _class: code -->
 
 # Иммутабельность — Rust
 
@@ -850,7 +589,6 @@ draft.age = 26;  // только let mut допускает мутацию
 
 ---
 
-<!-- _class: code -->
 
 # Иммутабельность — Python
 
@@ -871,7 +609,6 @@ user.age = 31  # FrozenInstanceError: cannot assign to field 'age'
 
 ---
 
-<!-- _class: code -->
 
 # Иммутабельность — JavaScript
 
@@ -916,13 +653,11 @@ user.age = 31;  // TypeError: Cannot assign to read only property
 
 ---
 
-<!-- _class: dark -->
 <!-- _paginate: false -->
 
 # Спасибо
 
 **Стачка 2026**
 
-<br>
 
 _Материалы доклада, sandbox и примеры кода:_
