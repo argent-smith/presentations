@@ -4,13 +4,15 @@
 
 ## Содержание папки
 
+- **[nastachku/](nastachku/)** — презентация для конференции Стачка 2026
+  - [presentation.pptx](nastachku/presentation.pptx) — слайды
+  - [presentation.pdf](nastachku/presentation.pdf) — PDF-версия
 - **[CFP.md](CFP.md)** — тезисы для подачи на конференцию
   - [Ключевые тезисы](CFP.md#ключевые-тезисы)
   - [Структура доклада](CFP.md#структура-доклада)
   - [Бонус-трек: Ruby DDD](CFP.md#бонус-трек-фп-в-production-ddd-приложении-ruby)
 - **[fp_languages_review.md](fp_languages_review.md)** — опорный документ с примерами на 11 языках
-- (будет добавлено) слайды презентации
-- (будет добавлено) примеры кода для демонстрации
+- **[PLAN.md](PLAN.md)** — рабочий план подготовки доклада
 
 ## Концепция доклада
 
