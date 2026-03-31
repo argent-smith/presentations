@@ -7,7 +7,7 @@ COMPOSE="docker compose -f .devcontainer/docker-compose.yml"
 DIRS=(01_functions 02_referential 03_immutability 04_declarative 05_expressions)
 NAMES=(
   "Свойство 1: функции как значения"
-  "Свойство 2: ссылочная прозрачность"
+  "Свойство 2: чистота функций"
   "Свойство 3: иммутабельность"
   "Свойство 4: декларативность"
   "Свойство 5: выражения вместо инструкций"
