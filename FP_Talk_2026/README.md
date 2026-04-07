@@ -7,6 +7,7 @@
 - **[nastachku/](nastachku/)** — презентация для конференции Стачка 2026
   - [presentation.pptx](nastachku/presentation.pptx) — слайды
   - [presentation.pdf](nastachku/presentation.pdf) — PDF-версия
+- **[merge/](merge/)** — презентация для конференции Merge 2026
 - **[CFP.md](CFP.md)** — тезисы для подачи на конференцию
   - [Ключевые тезисы](CFP.md#ключевые-тезисы)
   - [Структура доклада](CFP.md#структура-доклада)
