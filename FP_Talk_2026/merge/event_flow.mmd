@@ -1,0 +1,55 @@
+%%{init: {'theme': 'base', 'themeVariables': {
+  'background': '#191919',
+  'primaryColor': '#5b9bd5',
+  'primaryTextColor': '#ffffff',
+  'primaryBorderColor': '#2e75b6',
+  'lineColor': '#888888',
+  'fontSize': '15px'
+}}}%%
+flowchart LR
+    Client(["API Client"])
+
+    subgraph proxy["ProxyToLegacyApi"]
+        VC["ValidateContract"]
+        PTE["ProxyToExternal"]
+        VC --> PTE
+    end
+
+    Client --> VC
+
+    PTE --> RP("RequestProxied")
+    RP --> aaudit("async: audit")
+    RP --> abillin("async: billing")
+
+    PTE ---> PF("ProxyFailed")
+    VC  ---> VF("ValidationFailed")
+    PF --> EB(("Error Bus"))
+    VF --> EB
+
+    EB --> ametrics("sync: metrics")
+    EB --> aops("async: ops-alert")
+
+    style proxy   fill:#b8d8f018,stroke:#6ab0e0,color:#bbccdd
+    style Client  fill:#f5d76e,stroke:#c8a000,color:#222222
+    style VC      fill:#3a7fc1,stroke:#2e75b6,color:#ffffff
+    style PTE     fill:#3a7fc1,stroke:#2e75b6,color:#ffffff
+    style RP      fill:#e67e22,stroke:#ca6f1e,color:#ffffff
+    style PF      fill:#c0392b,stroke:#922b21,color:#ffffff
+    style VF      fill:#c0392b,stroke:#922b21,color:#ffffff
+    style EB      fill:#f4846a,stroke:#d4624a,color:#ffffff
+    style aaudit  fill:#8e44ad,stroke:#7d3c98,color:#ffffff
+    style abillin fill:#8e44ad,stroke:#7d3c98,color:#ffffff
+    style ametrics fill:#8e44ad,stroke:#7d3c98,color:#ffffff
+    style aops    fill:#8e44ad,stroke:#7d3c98,color:#ffffff
+
+    linkStyle 0 stroke:#48CC42,stroke-width:2px
+    linkStyle 1 stroke:#48CC42,stroke-width:2px
+    linkStyle 2 stroke:#48CC42,stroke-width:2px
+    linkStyle 3 stroke:#888888
+    linkStyle 4 stroke:#888888
+    linkStyle 5 stroke:#c0392b,stroke-width:2px
+    linkStyle 6 stroke:#c0392b,stroke-width:2px
+    linkStyle 7 stroke:#c0392b,stroke-width:2px
+    linkStyle 8 stroke:#c0392b,stroke-width:2px
+    linkStyle 9 stroke:#888888
+    linkStyle 10 stroke:#888888

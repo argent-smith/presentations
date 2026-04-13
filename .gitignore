@@ -36,8 +36,10 @@ Thumbs.db
 *.sublime-project
 *.sublime-workspace
 
-# Claude Code конфиги
+# Claude Code конфиги (кроме скиллов)
 .claude/
+!.claude/skills/
+!.claude/skills/**
 
 # Логи
 *.log
