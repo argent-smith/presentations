@@ -1,0 +1,53 @@
+%%{init: {'theme': 'base', 'themeVariables': {
+  'background': '#191919',
+  'primaryColor': '#2a3a2a',
+  'primaryTextColor': '#ffffff',
+  'primaryBorderColor': '#48CC42',
+  'lineColor': '#888888',
+  'fontSize': '14px'
+}}}%%
+flowchart LR
+    ctrl["Controller\nHTTP / Scheduler / Admin"]
+    validate["validate"]
+
+    subgraph cmd["Command – CQRS"]
+        direction LR
+        prepare["prepare"] --> persist["persist!"] --> publish["publish_events!"]
+    end
+
+    ctrl --> validate
+    validate --> prepare
+
+    subgraph result["Результат"]
+        SR["Success(result)"]
+        FDE["Failure(DomainError)"]
+    end
+
+    publish -->|"Success"| SR
+    publish -->|"Failure"| FDE
+
+    publish -->|"events"| ES["EventStore"]
+    ES -->|"dispatch"| AH["Async Handler"]
+    AH -->|"call"| ctrl
+
+    style ctrl    fill:#2a2a2a,stroke:#48CC42,color:#ffffff
+    style validate fill:#3a7fc1,stroke:#2e75b6,color:#ffffff
+    style cmd     fill:#1e2a1e,stroke:#48CC42,color:#aaccaa
+    style prepare fill:#2a4a2a,stroke:#48CC42,color:#ffffff
+    style persist fill:#2a4a2a,stroke:#48CC42,color:#ffffff
+    style publish fill:#2a4a2a,stroke:#48CC42,color:#ffffff
+    style result  fill:#2a2a3a,stroke:#5a5aaa,color:#aaaacc
+    style SR      fill:#1e3a1e,stroke:#48CC42,color:#ffffff
+    style FDE     fill:#3a1e1e,stroke:#cc4242,color:#ffffff
+    style ES      fill:#2a3a2a,stroke:#48CC42,color:#ffffff
+    style AH      fill:#2a3a2a,stroke:#48CC42,color:#ffffff
+
+    linkStyle 0 stroke:#888888
+    linkStyle 1 stroke:#888888
+    linkStyle 2 stroke:#888888
+    linkStyle 3 stroke:#888888
+    linkStyle 4 stroke:#48CC42,stroke-width:2px
+    linkStyle 5 stroke:#cc4242,stroke-width:2px
+    linkStyle 6 stroke:#888888
+    linkStyle 7 stroke:#888888
+    linkStyle 8 stroke:#888888
