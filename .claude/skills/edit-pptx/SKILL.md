@@ -391,6 +391,84 @@ shape.width
 shape.height
 ```
 
+## Вставка mermaid-диаграммы в слайд
+
+### Рендеринг
+
+```fish
+# 1. Рендер (mmdc игнорирует -H — высота определяется содержимым)
+/opt/homebrew/bin/mmdc -i diag.mmd -o diag_raw.png -b '#191919' -w 1400
+
+# 2. Добавить вертикальные поля через ImageMagick
+magick diag_raw.png -bordercolor '#191919' -border 0x80 diag.png
+
+# 3. Проверить реальный размер перед вставкой
+python3 -c "from PIL import Image; print(Image.open('diag.png').size)"
+```
+
+**Важно:** никогда не задавать пропорции вручную — брать из `Image.open().size`.
+
+### Вставка с сохранением пропорций (letterbox)
+
+```python
+from pptx import Presentation
+from PIL import Image
+
+def insert_diagram(pptx_path, img_path, slide_index,
+                   frame_left=300_000, frame_top=1_380_000,
+                   frame_right=8_844_000, frame_bottom=5_100_000):
+    prs = Presentation(pptx_path)
+    slide = prs.slides[slide_index]
+
+    # Удалить старую диаграмму (все Picture кроме Google-шаблонных)
+    for s in list(slide.shapes):
+        if s.name.startswith('Picture') and 'Google' not in s.name:
+            s._element.getparent().remove(s._element)
+
+    img_w_px, img_h_px = Image.open(img_path).size
+    aspect = img_w_px / img_h_px
+    frame_w = frame_right - frame_left
+    frame_h = frame_bottom - frame_top
+
+    img_w = frame_w
+    img_h = int(img_w / aspect)
+    if img_h > frame_h:          # letterbox по вертикали
+        img_h = frame_h
+        img_w = int(img_h * aspect)
+
+    left = frame_left + (frame_w - img_w) // 2
+    top  = frame_top  + (frame_h - img_h) // 2
+
+    slide.shapes.add_picture(img_path, left, top, img_w, img_h)
+    prs.save(pptx_path)
+```
+
+### Шейпы mermaid (event storming нотация)
+
+| Роль         | Mermaid-синтаксис | Вид               |
+|--------------|-------------------|-------------------|
+| Актор        | `id(["text"])`    | Stadium/pill      |
+| Команда      | `id["text"]`      | Прямоугольник     |
+| Событие      | `id("text")`      | Rounded rectangle |
+| Политика     | `id("text")`      | Rounded rectangle |
+| Error Bus    | `id(("text"))`    | Круг/эллипс       |
+| БД/хранилище | `id[("text")]`    | Цилиндр           |
+
+### Паттерн темной темы (dark background)
+
+```
+background:       #191919
+команды/сервисы:  fill:#3a7fc1, stroke:#2e75b6  (синий)
+success-узлы:     fill:#1e3a1e, stroke:#48CC42  (зелёный)
+failure-узлы:     fill:#3a1e1e, stroke:#cc4242  (красный)
+события:          fill:#e67e22, stroke:#ca6f1e  (оранжевый)
+обработчики:      fill:#8e44ad, stroke:#7d3c98  (фиолетовый)
+акторы:           fill:#f5d76e, stroke:#c8a000, color:#222222
+success-стрелки:  stroke:#48CC42, stroke-width:2px
+failure-стрелки:  stroke:#c0392b, stroke-width:2px
+нейтральные:      stroke:#888888
+```
+
 ## Чек-лист при создании нового кодового слайда
 
 1. Дублировать эталонный слайд через `duplicate_slide` (не создавать с нуля)
