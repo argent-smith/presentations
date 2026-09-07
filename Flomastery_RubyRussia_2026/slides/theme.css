@@ -2,8 +2,8 @@
 /*
  * Тема доклада «На вкус и цвет все фломастеры разные. Особенно если вы пишете на Ruby».
  * Тёмный вариант: тёмный фон, акцент — розово-красный, таблицы со светлым текстом
- * и видимыми границами, блок кода — светлой карточкой (иначе подсветка синтаксиса
- * на тёмном фоне тускнеет). Расширяет встроенную тему Marp default.
+ * и видимыми границами, блок кода — тёмная карточка с палитрой подсветки One Dark.
+ * Расширяет встроенную тему Marp default.
  *
  * Регистрируется в сборке через --theme-set, во front-matter слайдов — `theme: flomastery`.
  */
@@ -52,19 +52,42 @@ code {
   border-radius: 3px;
 }
 
-/* Блок кода — светлая карточка, чтобы подсветка синтаксиса читалась на тёмном слайде */
+/* Блок кода — тёмная карточка */
 pre {
   font-size: 0.7em;
-  background: #f6f8fa;
-  border: 1px solid #30363d;
+  background: #282c34;
+  border: 1px solid #21252b;
   border-radius: 6px;
 }
 
 pre code,
 pre code.hljs {
   background: transparent;
-  color: #24292f;
+  color: #abb2bf;
 }
+
+/* Подсветка синтаксиса — палитра One Dark (highlight.js токены) */
+.hljs-comment,
+.hljs-quote { color: #5c6370; font-style: italic; }
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-type { color: #c678dd; }
+.hljs-string,
+.hljs-doctag,
+.hljs-regexp { color: #98c379; }
+.hljs-number,
+.hljs-literal { color: #d19a66; }
+.hljs-symbol,
+.hljs-attr,
+.hljs-attribute { color: #56b6c2; }
+.hljs-built_in { color: #e6c07b; }
+.hljs-title,
+.hljs-title.function_,
+.hljs-name { color: #61afef; }
+.hljs-params,
+.hljs-variable,
+.hljs-subst { color: #abb2bf; }
+.hljs-meta { color: #5c6370; }
 
 blockquote {
   border-left: 3px solid var(--c-accent);
