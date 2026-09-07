@@ -1,66 +1,98 @@
 /* @theme flomastery */
 /*
  * Тема доклада «На вкус и цвет все фломастеры разные. Особенно если вы пишете на Ruby».
- * Расширяет встроенную тему Marp default. Регистрируется в сборке через --theme-set,
- * во front-matter слайдов указывается как `theme: flomastery`.
+ * Тёмный вариант: тёмный фон, акцент — розово-красный, таблицы со светлым текстом
+ * и видимыми границами, блок кода — светлой карточкой (иначе подсветка синтаксиса
+ * на тёмном фоне тускнеет). Расширяет встроенную тему Marp default.
+ *
+ * Регистрируется в сборке через --theme-set, во front-matter слайдов — `theme: flomastery`.
  */
 
 @import 'default';
 
 :root {
-  --color-fg: #1a1a1a;
-  --color-bg: #fdfdfb;
-  --color-accent: #b3204d;
-  --color-muted: #6b6b6b;
-  --font-sans: "Helvetica Neue", "Arial", "Noto Sans", sans-serif;
-  --font-mono: "SF Mono", "Menlo", "Consolas", "Noto Sans Mono", monospace;
+  --c-bg: #0f141a;
+  --c-fg: #dfe4ea;
+  --c-accent: #ff5d7d;
+  --c-hl: #ffd166;
+  --c-muted: #8a94a3;
+  --c-panel: #161d26;
+  --c-line: #2f3b4a;
 }
 
 section {
-  font-family: var(--font-sans);
-  color: var(--color-fg);
-  background: var(--color-bg);
+  background: var(--c-bg);
+  color: var(--c-fg);
+  font-family: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
   font-size: 28px;
-  padding: 64px 72px;
+  padding: 64px 76px;
 }
 
 h1,
 h2,
 h3 {
-  color: var(--color-accent);
+  color: var(--c-accent);
   font-weight: 700;
 }
 
-h1 {
-  font-size: 1.9em;
-}
-
 h2 {
-  font-size: 1.35em;
+  border-bottom: 1px solid var(--c-line);
+  padding-bottom: 0.2em;
 }
 
-a,
-strong {
-  color: var(--color-accent);
-}
+strong { color: var(--c-hl); }
+a { color: var(--c-accent); }
 
+/* Инлайн-код в тексте — тёмная плашка */
 code {
-  font-family: var(--font-mono);
-  background: rgba(0, 0, 0, 0.05);
-  padding: 0.1em 0.3em;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  background: #1d2530;
+  color: #e6edf3;
+  padding: 0.08em 0.3em;
   border-radius: 3px;
 }
 
+/* Блок кода — светлая карточка, чтобы подсветка синтаксиса читалась на тёмном слайде */
 pre {
   font-size: 0.7em;
-  line-height: 1.4;
+  background: #f6f8fa;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+}
+
+pre code,
+pre code.hljs {
+  background: transparent;
+  color: #24292f;
 }
 
 blockquote {
-  border-left: 4px solid var(--color-accent);
-  color: var(--color-muted);
-  font-style: italic;
+  border-left: 3px solid var(--c-accent);
+  color: var(--c-muted);
 }
+
+/* Таблица — читаемая на тёмном фоне */
+table {
+  border-collapse: collapse;
+  font-size: 0.92em;
+}
+
+th,
+td {
+  border: 1px solid var(--c-line);
+  padding: 0.34em 0.72em;
+  color: var(--c-fg);
+  background: transparent;
+}
+
+thead th {
+  background: #1f2a37;
+  color: #ffffff;
+  border-bottom: 2px solid var(--c-accent);
+}
+
+tbody tr:nth-child(odd) td { background: #141b24; }
+tbody tr:nth-child(even) td { background: #0f141a; }
 
 /* Титульный слайд: <!-- _class: lead --> */
 section.lead {
@@ -68,25 +100,23 @@ section.lead {
   text-align: center;
 }
 
-section.lead h1 {
-  font-size: 2.2em;
-}
-
-section.lead .subtitle {
-  color: var(--color-muted);
-  font-size: 1.1em;
-}
+section.lead h1 { font-size: 2.4em; }
+section.lead .subtitle { color: var(--c-muted); }
 
 /* Разделитель секции: <!-- _class: section --> */
 section.section {
-  background: var(--color-accent);
-  color: #fff;
   justify-content: center;
+  background: var(--c-bg);
 }
 
 section.section h1 {
-  color: #fff;
-  font-size: 2.4em;
+  font-size: 3em;
+  color: var(--c-accent);
+}
+
+section.section h1::before {
+  content: "# ";
+  color: #3a4552;
 }
 
 /* Две колонки: обернуть содержимое в <div class="columns">...</div> (нужен флаг --html) */
@@ -98,14 +128,14 @@ section.section h1 {
 
 /* Сноска-оговорка «со сцены» */
 .note {
-  color: var(--color-muted);
+  color: var(--c-muted);
   font-size: 0.8em;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid var(--c-line);
   padding-top: 0.4em;
   margin-top: 0.6em;
 }
 
 section::after {
-  color: var(--color-muted);
+  color: #3a4552;
   font-size: 0.6em;
 }
