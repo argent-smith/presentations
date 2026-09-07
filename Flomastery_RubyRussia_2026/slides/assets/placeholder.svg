@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240" role="img" aria-label="Заглушка иллюстрации">
+  <rect width="240" height="240" rx="16" fill="#fdfdfb" stroke="#b3204d" stroke-width="4"/>
+  <path d="M60 150 L100 96 L132 138 L156 108 L184 150 Z" fill="none" stroke="#b3204d" stroke-width="6" stroke-linejoin="round"/>
+  <circle cx="100" cy="96" r="8" fill="#b3204d"/>
+  <text x="120" y="196" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#6b6b6b">иллюстрация</text>
+</svg>

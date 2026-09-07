@@ -1,0 +1,111 @@
+/* @theme flomastery */
+/*
+ * Тема доклада «На вкус и цвет все фломастеры разные. Особенно если вы пишете на Ruby».
+ * Расширяет встроенную тему Marp default. Регистрируется в сборке через --theme-set,
+ * во front-matter слайдов указывается как `theme: flomastery`.
+ */
+
+@import 'default';
+
+:root {
+  --color-fg: #1a1a1a;
+  --color-bg: #fdfdfb;
+  --color-accent: #b3204d;
+  --color-muted: #6b6b6b;
+  --font-sans: "Helvetica Neue", "Arial", "Noto Sans", sans-serif;
+  --font-mono: "SF Mono", "Menlo", "Consolas", "Noto Sans Mono", monospace;
+}
+
+section {
+  font-family: var(--font-sans);
+  color: var(--color-fg);
+  background: var(--color-bg);
+  font-size: 28px;
+  padding: 64px 72px;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 1.9em;
+}
+
+h2 {
+  font-size: 1.35em;
+}
+
+a,
+strong {
+  color: var(--color-accent);
+}
+
+code {
+  font-family: var(--font-mono);
+  background: rgba(0, 0, 0, 0.05);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+pre {
+  font-size: 0.7em;
+  line-height: 1.4;
+}
+
+blockquote {
+  border-left: 4px solid var(--color-accent);
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+/* Титульный слайд: <!-- _class: lead --> */
+section.lead {
+  justify-content: center;
+  text-align: center;
+}
+
+section.lead h1 {
+  font-size: 2.2em;
+}
+
+section.lead .subtitle {
+  color: var(--color-muted);
+  font-size: 1.1em;
+}
+
+/* Разделитель секции: <!-- _class: section --> */
+section.section {
+  background: var(--color-accent);
+  color: #fff;
+  justify-content: center;
+}
+
+section.section h1 {
+  color: #fff;
+  font-size: 2.4em;
+}
+
+/* Две колонки: обернуть содержимое в <div class="columns">...</div> (нужен флаг --html) */
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4em;
+}
+
+/* Сноска-оговорка «со сцены» */
+.note {
+  color: var(--color-muted);
+  font-size: 0.8em;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 0.4em;
+  margin-top: 0.6em;
+}
+
+section::after {
+  color: var(--color-muted);
+  font-size: 0.6em;
+}

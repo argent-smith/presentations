@@ -1,0 +1,7 @@
+# Промежуточная HTML-сборка и рабочие артефакты Marp.
+# Коммитятся только источник (slides/) и финальный presentation.pdf.
+presentation.html
+*.html
+exports/
+.marp/
+*.tmp
