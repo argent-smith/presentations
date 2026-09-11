@@ -5,3 +5,6 @@ presentation.html
 exports/
 .marp/
 *.tmp
+
+# Локальные настройки Claude Code (специфичны для машины, не для команды)
+.claude/settings.local.json

@@ -137,16 +137,146 @@ section.section h1 {
   color: var(--c-accent);
 }
 
-section.section h1::before {
-  content: "# ";
-  color: #3a4552;
-}
-
 /* Две колонки: обернуть содержимое в <div class="columns">...</div> (нужен флаг --html) */
 .columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.4em;
+}
+
+.columns > div + div {
+  border-left: 1px solid var(--c-line);
+  padding-left: 1.4em;
+}
+
+/* Pie-chart слайд: SVG слева, легенда справа */
+.pie-wrap {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  margin-top: 0.6em;
+}
+
+.pie-wrap img { flex: none; }
+
+.pie-legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.85em;
+}
+
+.pie-legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0.4em 0;
+}
+
+.pie-legend .swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex: none;
+}
+
+/* Ростер языков: карточки с цветной полосой + инварианты стенда */
+.lang-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+  margin-top: 0.8em;
+}
+
+.lang-card {
+  border-top: 6px solid var(--lc);
+  background: var(--c-panel);
+  border-radius: 6px;
+  padding: 1.2em 0.6em;
+  text-align: center;
+}
+
+.lc-name {
+  font-weight: 700;
+  font-size: 1.05em;
+  color: var(--c-fg);
+}
+
+.lang-note {
+  color: var(--c-muted);
+  font-size: 0.68em;
+  margin-top: 0.7em;
+}
+
+.invariants {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+  margin-top: 1.8em;
+  font-size: 0.66em;
+  color: var(--c-muted);
+  border-top: 1px solid var(--c-line);
+  padding-top: 0.8em;
+}
+
+.invariants strong {
+  display: block;
+  font-size: 1.2em;
+  margin-bottom: 0.25em;
+}
+
+/* Диаграмма цикла на тикет */
+.cycle-figure {
+  margin: 0.6em 0 0;
+  text-align: center;
+}
+
+.cycle-figure img {
+  width: 100%;
+  max-width: 820px;
+  height: auto;
+}
+
+.cycle-figure figcaption {
+  color: var(--c-muted);
+  font-size: 0.62em;
+  margin-top: 0.5em;
+}
+
+.cycle-figure figcaption ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0;
+  padding-left: 1.1em;
+}
+
+.cycle-figure figcaption li {
+  margin: 0.2em 0;
+}
+
+/* QR-плейсхолдер на слайде репозитория */
+.qr-wrap {
+  display: flex;
+  align-items: center;
+  gap: 2.4em;
+  margin-top: 1em;
+}
+
+.qr-wrap img { flex: none; }
+
+.qr-caption {
+  font-size: 0.9em;
+}
+
+.qr-caption .placeholder-tag {
+  display: inline-block;
+  color: var(--c-hl);
+  border: 1px solid var(--c-hl);
+  border-radius: 4px;
+  padding: 0.1em 0.5em;
+  font-size: 0.7em;
+  font-weight: 700;
+  margin-bottom: 0.6em;
 }
 
 /* Сноска-оговорка «со сцены» */

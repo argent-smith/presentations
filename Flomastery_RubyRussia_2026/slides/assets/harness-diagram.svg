@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" role="img" aria-label="Устройство харнесса: с хоста в Docker-контейнер харнесса примонтирована только директория пилота, остальной хост — ssh, мета-репозиторий с эталонной реализацией, другие сессии — недоступен; внутри контейнера claude -p headless на sonnet-5 с effort xhigh работает с кодом тикета">
+  <defs>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#dfe4ea"/>
+    </marker>
+  </defs>
+
+  <rect x="20" y="30" width="430" height="340" rx="12" fill="none" stroke="#dfe4ea" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.7"/>
+  <text x="40" y="58" font-size="14" font-weight="700" fill="#dfe4ea" opacity="0.85">Хост (macOS)</text>
+
+  <rect x="40" y="78" width="220" height="50" rx="6" fill="none" stroke="#dfe4ea" stroke-width="1.2" opacity="0.45"/>
+  <text x="150" y="107" text-anchor="middle" font-size="12" fill="#dfe4ea" opacity="0.6">~/.ssh, credentials</text>
+  <line x1="260" y1="103" x2="298" y2="103" stroke="#dfe4ea" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.45"/>
+  <line x1="294" y1="97" x2="304" y2="109" stroke="#dfe4ea" stroke-width="1.5" opacity="0.6"/>
+  <line x1="304" y1="97" x2="294" y2="109" stroke="#dfe4ea" stroke-width="1.5" opacity="0.6"/>
+
+  <rect x="40" y="142" width="220" height="50" rx="6" fill="none" stroke="#dfe4ea" stroke-width="1.2" opacity="0.45"/>
+  <text x="150" y="163" text-anchor="middle" font-size="12" fill="#dfe4ea" opacity="0.6">мета-репозиторий</text>
+  <text x="150" y="180" text-anchor="middle" font-size="11" fill="#dfe4ea" opacity="0.6">(CLAUDE.md, эталон)</text>
+  <line x1="260" y1="167" x2="298" y2="167" stroke="#dfe4ea" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.45"/>
+  <line x1="294" y1="161" x2="304" y2="173" stroke="#dfe4ea" stroke-width="1.5" opacity="0.6"/>
+  <line x1="304" y1="161" x2="294" y2="173" stroke="#dfe4ea" stroke-width="1.5" opacity="0.6"/>
+
+  <rect x="40" y="206" width="220" height="50" rx="6" fill="none" stroke="#dfe4ea" stroke-width="1.2" opacity="0.45"/>
+  <text x="150" y="235" text-anchor="middle" font-size="12" fill="#dfe4ea" opacity="0.6">другие сессии, /tmp</text>
+  <line x1="260" y1="231" x2="298" y2="231" stroke="#dfe4ea" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.45"/>
+  <line x1="294" y1="225" x2="304" y2="237" stroke="#dfe4ea" stroke-width="1.5" opacity="0.6"/>
+  <line x1="304" y1="225" x2="294" y2="237" stroke="#dfe4ea" stroke-width="1.5" opacity="0.6"/>
+
+  <rect x="40" y="278" width="220" height="60" rx="6" fill="none" stroke="#ff5d7d" stroke-width="2"/>
+  <text x="150" y="304" text-anchor="middle" font-size="13" font-weight="700" fill="#ff5d7d">директория пилота</text>
+  <text x="150" y="322" text-anchor="middle" font-size="11" fill="#dfe4ea">/workspace</text>
+
+  <line x1="260" y1="308" x2="556" y2="230" stroke="#ff5d7d" stroke-width="2" marker-end="url(#arrow2)"/>
+  <text x="505" y="65" text-anchor="middle" font-size="12" fill="#ff5d7d">единственный смонтированный путь</text>
+
+  <rect x="560" y="90" width="380" height="230" rx="10" fill="none" stroke="#ff5d7d" stroke-width="2"/>
+  <text x="750" y="118" text-anchor="middle" font-size="14" font-weight="700" fill="#ff5d7d">Docker-контейнер харнесса</text>
+  <text x="750" y="150" text-anchor="middle" font-size="15" font-weight="700" fill="#ff5d7d">claude -p</text>
+  <text x="750" y="170" text-anchor="middle" font-size="12" fill="#dfe4ea">headless · sonnet-5 · xhigh</text>
+
+  <rect x="600" y="195" width="300" height="95" rx="6" fill="none" stroke="#dfe4ea" stroke-width="1.5"/>
+  <text x="750" y="230" text-anchor="middle" font-size="13" fill="#dfe4ea">код тикета</text>
+  <text x="750" y="250" text-anchor="middle" font-size="11" fill="#dfe4ea" opacity="0.75">сервер + клиент</text>
+  <text x="750" y="267" text-anchor="middle" font-size="11" fill="#dfe4ea" opacity="0.75">строится и тестируется тоже в контейнере</text>
+</svg>

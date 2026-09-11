@@ -12,7 +12,9 @@
 - `slides/slides.md` — исходник презентации в формате Marp Markdown
 - `slides/theme.css` — тема оформления (`flomastery`), расширяет встроенную `default`
 - `slides/assets/` — изображения и векторные вставки
-- `build.sh` — сборка через закреплённый по версии образ Marp CLI
+- `docker-compose.yml` — конфигурация контейнера Marp CLI (образ, монтирование, порт)
+- `build.sh` — сборка через `docker compose run`
+- `Makefile` — короткие цели для ручного запуска (`make help`)
 - `presentation.pdf` — собранная презентация (коммитится)
 
 Промежуточный `presentation.html` и прочие артефакты сборки в репозиторий не
@@ -21,17 +23,21 @@
 ## Сборка
 
 Движок — [Marp CLI](https://github.com/marp-team/marp-cli), закреплён образом
-`marpteam/marp-cli:v4.5.1`. Локально нужен только Docker.
+`marpteam/marp-cli:v4.5.1` в `docker-compose.yml`. Локально нужен только Docker.
 
 ```sh
 ./build.sh          # presentation.pdf
 ./build.sh html     # presentation.html
 ./build.sh all      # оба формата
 ./build.sh serve    # живой предпросмотр на http://localhost:8080
+
+# то же через make
+make pdf
+make serve
 ```
 
-Сборка идёт в контейнере, версия инструмента задана тегом образа — результат не
-зависит от локального Chromium и набора шрифтов.
+Сборка идёт в контейнере (`docker compose run`), версия инструмента задана
+тегом образа — результат не зависит от локального Chromium и набора шрифтов.
 
 ## Источник содержания
 

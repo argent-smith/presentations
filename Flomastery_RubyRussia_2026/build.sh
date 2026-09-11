@@ -2,8 +2,9 @@
 #
 # Сборка слайдов доклада «На вкус и цвет все фломастеры разные» через Marp CLI.
 #
-# Движок закреплён по версии образом Docker (marpteam/marp-cli:v4.5.1) — как и всё
-# остальное в эксперименте, дрейф версии инструмента исключается на уровне тега.
+# Движок закреплён по версии образом Docker (marpteam/marp-cli:v4.5.1, см.
+# docker-compose.yml) — как и всё остальное в эксперименте, дрейф версии
+# инструмента исключается на уровне тега.
 #
 # Источник:  slides/slides.md + slides/theme.css + slides/assets/
 # Результат:  presentation.pdf (коммитится), presentation.html (промежуточный, в .gitignore)
@@ -17,19 +18,18 @@
 
 set -euo pipefail
 
-MARP_IMAGE="marpteam/marp-cli:v4.5.1"
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$HERE"
+
+export MARP_UID="$(id -u)"
+export MARP_GID="$(id -g)"
+export LANG="${LANG:-ru_RU.UTF-8}"
 
 # Позиционный вход идёт первым; --theme-set (тип array в yargs) — последним,
 # иначе он поглощает следующий за ним путь как ещё один элемент массива.
 render() {
   local out="$1"
-  docker run --rm --init \
-    -v "$HERE:/home/marp/app" \
-    -e MARP_USER="$(id -u):$(id -g)" \
-    -e LANG="${LANG:-ru_RU.UTF-8}" \
-    "$MARP_IMAGE" \
+  docker compose run --rm marp \
     slides/slides.md -o "$out" \
     --html --allow-local-files \
     --theme-set slides/theme.css
@@ -50,10 +50,7 @@ case "${1:-pdf}" in
     echo "Готово: presentation.pdf, presentation.html"
     ;;
   serve)
-    docker run --rm --init -p 8080:8080 \
-      -v "$HERE:/home/marp/app" \
-      -e LANG="${LANG:-ru_RU.UTF-8}" \
-      "$MARP_IMAGE" \
+    docker compose run --rm --service-ports marp \
       -s slides --html --theme-set slides/theme.css
     ;;
   *)

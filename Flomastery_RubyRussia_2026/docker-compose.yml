@@ -1,0 +1,18 @@
+# Контейнер Marp CLI для сборки и живого предпросмотра слайдов доклада
+# «На вкус и цвет все фломастеры разные» (RubyRussia 2026). Версия движка
+# закреплена тегом образа — см. README.md.
+#
+# Команда не задана здесь: build.sh передаёт её через
+# `docker compose run --rm marp <args>` под каждый режим (pdf/html/serve).
+
+services:
+  marp:
+    image: marpteam/marp-cli:v4.5.1
+    init: true
+    environment:
+      MARP_USER: "${MARP_UID}:${MARP_GID}"
+      LANG: "${LANG:-ru_RU.UTF-8}"
+    volumes:
+      - .:/home/marp/app
+    ports:
+      - "8080:8080"
