@@ -137,6 +137,33 @@ section.section h1 {
   color: var(--c-accent);
 }
 
+/* Слайд-цитата: вывод крупно по центру, в стиле «цитаты великих» — <!-- _class: quote --> */
+section.quote {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+section.quote::before {
+  content: "\201C";
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 5em;
+  line-height: 1;
+  color: var(--c-accent);
+  margin-bottom: -0.15em;
+}
+
+section.quote p {
+  max-width: 880px;
+  margin: 0 auto;
+  font-size: 1.8em;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--c-fg);
+}
+
 /* Две колонки: обернуть содержимое в <div class="columns">...</div> (нужен флаг --html) */
 .columns {
   display: grid;

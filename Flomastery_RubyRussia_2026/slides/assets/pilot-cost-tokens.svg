@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 300" role="img" aria-label="Итого по языку за 44 канонических прогона: стоимость в долларах — Python 16.42, JavaScript 16.24, TypeScript 18.60, Ruby 15.22; out-токены — Python 350502, JavaScript 328045, TypeScript 351496, Ruby 296506">
+  <text x="0" y="22" font-size="17" font-weight="700" fill="#ff5d7d">Стоимость, $</text>
+
+  <text x="126" y="70" text-anchor="end" font-size="15" fill="#dfe4ea">Python</text>
+  <rect x="140" y="59" width="229.5" height="22" rx="4" fill="#199e70"/>
+  <text x="379.5" y="70" font-size="15" font-weight="700" fill="#dfe4ea">16.42</text>
+
+  <text x="126" y="132" text-anchor="end" font-size="15" fill="#dfe4ea">JavaScript</text>
+  <rect x="140" y="121" width="227.0" height="22" rx="4" fill="#c98500"/>
+  <text x="377" y="132" font-size="15" font-weight="700" fill="#dfe4ea">16.24</text>
+
+  <text x="126" y="194" text-anchor="end" font-size="15" fill="#dfe4ea">TypeScript</text>
+  <rect x="140" y="183" width="260.0" height="22" rx="4" fill="#3987e5"/>
+  <text x="410" y="194" font-size="15" font-weight="700" fill="#dfe4ea">18.60</text>
+
+  <text x="126" y="256" text-anchor="end" font-size="15" fill="#dfe4ea">Ruby</text>
+  <rect x="140" y="245" width="212.7" height="22" rx="4" fill="#e66767"/>
+  <text x="362.7" y="256" font-size="15" font-weight="700" fill="#dfe4ea">15.22</text>
+
+  <text x="560" y="22" font-size="17" font-weight="700" fill="#ff5d7d">out-токены</text>
+
+  <text x="686" y="70" text-anchor="end" font-size="15" fill="#dfe4ea">Python</text>
+  <rect x="700" y="59" width="259.3" height="22" rx="4" fill="#199e70"/>
+  <text x="969.3" y="70" font-size="15" font-weight="700" fill="#dfe4ea">350 502</text>
+
+  <text x="686" y="132" text-anchor="end" font-size="15" fill="#dfe4ea">JavaScript</text>
+  <rect x="700" y="121" width="242.7" height="22" rx="4" fill="#c98500"/>
+  <text x="952.7" y="132" font-size="15" font-weight="700" fill="#dfe4ea">328 045</text>
+
+  <text x="686" y="194" text-anchor="end" font-size="15" fill="#dfe4ea">TypeScript</text>
+  <rect x="700" y="183" width="260.0" height="22" rx="4" fill="#3987e5"/>
+  <text x="970" y="194" font-size="15" font-weight="700" fill="#dfe4ea">351 496</text>
+
+  <text x="686" y="256" text-anchor="end" font-size="15" fill="#dfe4ea">Ruby</text>
+  <rect x="700" y="245" width="219.3" height="22" rx="4" fill="#e66767"/>
+  <text x="929.3" y="256" font-size="15" font-weight="700" fill="#dfe4ea">296 506</text>
+</svg>
