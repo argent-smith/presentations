@@ -190,20 +190,20 @@ section.quote p {
   list-style: none;
   margin: 0;
   padding: 0;
-  font-size: 0.85em;
+  font-size: 1em;
 }
 
 .pie-legend li {
   display: flex;
   align-items: center;
   gap: 0.5em;
-  margin: 0.4em 0;
+  margin: 0.5em 0;
 }
 
 .pie-legend .swatch {
-  width: 14px;
-  height: 14px;
-  border-radius: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
   flex: none;
 }
 
@@ -259,14 +259,14 @@ section.quote p {
 }
 
 .cycle-figure img {
+  display: block;
   width: 100%;
-  max-width: 820px;
   height: auto;
 }
 
 .cycle-figure figcaption {
   color: var(--c-muted);
-  font-size: 0.62em;
+  font-size: 0.72em;
   margin-top: 0.5em;
 }
 

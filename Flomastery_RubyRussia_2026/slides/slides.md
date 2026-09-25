@@ -55,7 +55,7 @@ description: Доклад RubyRussia 2026. Эмпирическая провер
 
 <div class="pie-wrap">
 
-<img src="assets/pie-weight.svg" width="260" height="260" alt="Предполагаемый вес языка для ИИ: Python 50%, JavaScript 20%, TypeScript 20%, Ruby 10%">
+<img src="assets/pie-weight.svg" width="380" height="380" alt="Предполагаемый вес языка для ИИ: Python 50%, JavaScript 20%, TypeScript 20%, Ruby 10%">
 
 <ul class="pie-legend">
 <li><span class="swatch" style="background:#199e70"></span> <strong>Python</strong> — язык авторов LLM</li>
@@ -295,8 +295,8 @@ notes/todo.txt    up to date
 
 <!-- _class: quote -->
 
-Плохо сколоченный стенд измеряет инструмент, \
-а не язык
+Плохо сколоченный стенд измеряет себя, \
+а не объект
 
 ---
 
@@ -318,7 +318,7 @@ notes/todo.txt    up to date
 
 <figure class="cycle-figure">
 <img src="assets/pilot-cost-tokens.svg" alt="Итого по языку за 44 канонических прогона: стоимость в долларах — Python 16.42, JavaScript 16.24, TypeScript 18.60, Ruby 15.22; out-токены — Python 350502, JavaScript 328045, TypeScript 351496, Ruby 296506">
-<figcaption>44 канонических прогона: тикеты 1–11 × 4 языка, единая конфигурация, replay-кампания 2026-09-04..06.</figcaption>
+<figcaption>44 канонических прогона: тикеты 1–11 × 4 языка</figcaption>
 </figure>
 
 ---
@@ -327,16 +327,16 @@ notes/todo.txt    up to date
 
 <figure class="cycle-figure">
 <img src="assets/pilot-ranks.svg" alt="Средний ранг по тикетам, шкала 1 (лучший) — 4 (худший): по out-токенам — Python 2.09, JavaScript 3.09, TypeScript 2.64, Ruby 2.18; по числу ходов — Python 1.64, JavaScript 3.27, TypeScript 2.73, Ruby 2.36">
-<figcaption>Ранг 1 — дешевле/меньше всех на тикете, 4 — дороже/больше всех; усреднён по 11 тикетам, снимает разброс размера тикетов.</figcaption>
+<figcaption>Ранг 1 — дешевле/меньше всех на тикете, 4 — дороже/больше всех; среднее по 11 тикетам, снимает разброс размера тикетов. Слева направо — от лучшего к худшему.</figcaption>
 </figure>
 
 ---
 
-## Сошлось — везде. Разница только в цене
+## Не упал никто
 
 <figure class="cycle-figure">
 <img src="assets/pilot-success-grid.svg" alt="Бинарные критерии успеха одинаковы по всем четырём языкам: тикетов сошлось 11 из 11, штатные тесты прошли 11 из 11, контракт зелёный 11 из 11 — без исключений. Тикетов с более чем одной итерацией — 1 (тикет 1) у всех четырёх">
-<figcaption>По бинарной метрике «агент справился» языкового эффекта нет — различие целиком в цене успеха, не в самом факте.</figcaption>
+<figcaption>По бинарной метрике «агент справился» языкового эффекта нет — различие целиком в цене успеха.</figcaption>
 </figure>
 
 ---

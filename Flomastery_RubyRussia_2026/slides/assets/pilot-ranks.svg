@@ -1,37 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 300" role="img" aria-label="Средний ранг по тикетам, шкала 1 (лучший) — 4 (худший): по out-токенам — Python 2.09, JavaScript 3.09, TypeScript 2.64, Ruby 2.18; по числу ходов — Python 1.64, JavaScript 3.27, TypeScript 2.73, Ruby 2.36">
-  <text x="0" y="22" font-size="17" font-weight="700" fill="#ff5d7d">Ранг по out-токенам</text>
-
-  <text x="126" y="70" text-anchor="end" font-size="15" fill="#dfe4ea">Python</text>
-  <rect x="140" y="59" width="135.9" height="22" rx="4" fill="#199e70"/>
-  <text x="285.9" y="70" font-size="15" font-weight="700" fill="#dfe4ea">2.09</text>
-
-  <text x="126" y="132" text-anchor="end" font-size="15" fill="#dfe4ea">JavaScript</text>
-  <rect x="140" y="121" width="200.9" height="22" rx="4" fill="#c98500"/>
-  <text x="350.9" y="132" font-size="15" font-weight="700" fill="#dfe4ea">3.09</text>
-
-  <text x="126" y="194" text-anchor="end" font-size="15" fill="#dfe4ea">TypeScript</text>
-  <rect x="140" y="183" width="171.6" height="22" rx="4" fill="#3987e5"/>
-  <text x="321.6" y="194" font-size="15" font-weight="700" fill="#dfe4ea">2.64</text>
-
-  <text x="126" y="256" text-anchor="end" font-size="15" fill="#dfe4ea">Ruby</text>
-  <rect x="140" y="245" width="141.7" height="22" rx="4" fill="#e66767"/>
-  <text x="291.7" y="256" font-size="15" font-weight="700" fill="#dfe4ea">2.18</text>
-
-  <text x="560" y="22" font-size="17" font-weight="700" fill="#ff5d7d">Ранг по числу ходов</text>
-
-  <text x="686" y="70" text-anchor="end" font-size="15" fill="#dfe4ea">Python</text>
-  <rect x="700" y="59" width="106.6" height="22" rx="4" fill="#199e70"/>
-  <text x="816.6" y="70" font-size="15" font-weight="700" fill="#dfe4ea">1.64</text>
-
-  <text x="686" y="132" text-anchor="end" font-size="15" fill="#dfe4ea">JavaScript</text>
-  <rect x="700" y="121" width="212.6" height="22" rx="4" fill="#c98500"/>
-  <text x="922.6" y="132" font-size="15" font-weight="700" fill="#dfe4ea">3.27</text>
-
-  <text x="686" y="194" text-anchor="end" font-size="15" fill="#dfe4ea">TypeScript</text>
-  <rect x="700" y="183" width="177.5" height="22" rx="4" fill="#3987e5"/>
-  <text x="887.5" y="194" font-size="15" font-weight="700" fill="#dfe4ea">2.73</text>
-
-  <text x="686" y="256" text-anchor="end" font-size="15" fill="#dfe4ea">Ruby</text>
-  <rect x="700" y="245" width="153.4" height="22" rx="4" fill="#e66767"/>
-  <text x="863.4" y="256" font-size="15" font-weight="700" fill="#dfe4ea">2.36</text>
+<svg xmlns="http://www.w3.org/2000/svg" font-family="'Helvetica Neue', Arial, 'Liberation Sans', sans-serif" viewBox="0 0 1130 410" role="img" aria-label="Средний ранг по тикетам, зеркальная гистограмма, единая шкала, меньше — лучше: сверху ранг по out-токенам — Python 2.09, JavaScript 3.09, TypeScript 2.64, Ruby 2.18; снизу ранг по числу ходов — Python 1.64, JavaScript 3.27, TypeScript 2.73, Ruby 2.36">
+  <rect x="240" y="186" width="890" height="48" rx="6" fill="#141b24"/>
+  <text x="0" y="113" font-size="28" font-weight="700" fill="#ff5d7d">Ранг по</text>
+  <text x="0" y="147" font-size="28" font-weight="700" fill="#ff5d7d">out-токенам</text>
+  <text x="0" y="291" font-size="28" font-weight="700" fill="#ff5d7d">Ранг по</text>
+  <text x="0" y="325" font-size="28" font-weight="700" fill="#ff5d7d">числу ходов</text>
+  <path d="M302,186 L302,110.4 Q302,102.4 310,102.4 L390,102.4 Q398,102.4 398,110.4 L398,186 Z" fill="#199e70"/>
+  <text x="350" y="92.4" text-anchor="middle" font-size="26" font-weight="700" fill="#dfe4ea">2.09</text>
+  <text x="350" y="219" text-anchor="middle" font-size="25" fill="#dfe4ea">Python</text>
+  <path d="M302,234 L302,291.6 Q302,299.6 310,299.6 L390,299.6 Q398,299.6 398,291.6 L398,234 Z" fill="#199e70"/>
+  <text x="350" y="328.6" text-anchor="middle" font-size="26" font-weight="700" fill="#dfe4ea">1.64</text>
+  <path d="M522,186 L522,106.8 Q522,98.8 530,98.8 L610,98.8 Q618,98.8 618,106.8 L618,186 Z" fill="#e66767"/>
+  <text x="570" y="88.8" text-anchor="middle" font-size="26" font-weight="700" fill="#dfe4ea">2.18</text>
+  <text x="570" y="219" text-anchor="middle" font-size="25" fill="#dfe4ea">Ruby</text>
+  <path d="M522,234 L522,320.4 Q522,328.4 530,328.4 L610,328.4 Q618,328.4 618,320.4 L618,234 Z" fill="#e66767"/>
+  <text x="570" y="357.4" text-anchor="middle" font-size="26" font-weight="700" fill="#dfe4ea">2.36</text>
+  <path d="M742,186 L742,88.4 Q742,80.4 750,80.4 L830,80.4 Q838,80.4 838,88.4 L838,186 Z" fill="#3987e5"/>
+  <text x="790" y="70.4" text-anchor="middle" font-size="26" font-weight="700" fill="#dfe4ea">2.64</text>
+  <text x="790" y="219" text-anchor="middle" font-size="25" fill="#dfe4ea">TypeScript</text>
+  <path d="M742,234 L742,335.2 Q742,343.2 750,343.2 L830,343.2 Q838,343.2 838,335.2 L838,234 Z" fill="#3987e5"/>
+  <text x="790" y="372.2" text-anchor="middle" font-size="26" font-weight="700" fill="#dfe4ea">2.73</text>
+  <path d="M962,186 L962,70.4 Q962,62.4 970,62.4 L1050,62.4 Q1058,62.4 1058,70.4 L1058,186 Z" fill="#c98500"/>
+  <text x="1010" y="52.4" text-anchor="middle" font-size="26" font-weight="700" fill="#dfe4ea">3.09</text>
+  <text x="1010" y="219" text-anchor="middle" font-size="25" fill="#dfe4ea">JavaScript</text>
+  <path d="M962,234 L962,356.8 Q962,364.8 970,364.8 L1050,364.8 Q1058,364.8 1058,356.8 L1058,234 Z" fill="#c98500"/>
+  <text x="1010" y="393.8" text-anchor="middle" font-size="26" font-weight="700" fill="#dfe4ea">3.27</text>
 </svg>

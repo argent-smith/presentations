@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-label="Предполагаемый вес языка для ИИ: Python 50%, JavaScript 20%, TypeScript 20%, Ruby 10%">
+<svg xmlns="http://www.w3.org/2000/svg" font-family="'Helvetica Neue', Arial, 'Liberation Sans', sans-serif" viewBox="0 0 320 320" role="img" aria-label="Предполагаемый вес языка для ИИ: Python 50%, JavaScript 20%, TypeScript 20%, Ruby 10%">
   <path d="M160,160 L163.63,30.05 A130,130 0 0,1 282.47,116.39 Z" fill="#3987e5"/>
   <path d="M160,160 L284.71,123.3 A130,130 0 0,1 284.71,196.7 Z" fill="#e66767"/>
   <path d="M160,160 L282.47,203.61 A130,130 0 0,1 35.29,123.3 Z" fill="#199e70"/>
