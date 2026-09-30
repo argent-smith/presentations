@@ -1,30 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" font-family="'Helvetica Neue', Arial, 'Liberation Sans', sans-serif" viewBox="0 0 1130 425" role="img" aria-label="Бинарные критерии успеха по всем четырём языкам одинаковы: тикетов сошлось 11 из 11, штатные тесты прошли 11 из 11, контракт зелёный 11 из 11 — у Python, JavaScript, TypeScript и Ruby без исключений. Тикетов с более чем одной итерацией — 1 (тикет 1) у всех четырёх">
+<svg xmlns="http://www.w3.org/2000/svg" font-family="'Helvetica Neue', Arial, 'Liberation Sans', sans-serif" viewBox="0 0 1130 416" role="img" aria-label="Бинарные критерии успеха по всем четырём языкам одинаковы: тикетов сошлось 11 из 11, штатные тесты прошли 11 из 11, контракт зелёный 11 из 11 — у Python, JavaScript, TypeScript и Ruby без исключений">
   <text x="370" y="52" text-anchor="middle" font-size="30" font-weight="700" fill="#199e70">Python</text>
   <text x="588" y="52" text-anchor="middle" font-size="30" font-weight="700" fill="#c98500">JavaScript</text>
   <text x="806" y="52" text-anchor="middle" font-size="30" font-weight="700" fill="#3987e5">TypeScript</text>
   <text x="1024" y="52" text-anchor="middle" font-size="30" font-weight="700" fill="#e66767">Ruby</text>
 
-  <rect x="0" y="76" width="1130" height="92" rx="8" fill="#141b24"/>
-  <rect x="0" y="260" width="1130" height="92" rx="8" fill="#141b24"/>
+  <rect x="0" y="76" width="1130" height="108" rx="8" fill="#141b24"/>
+  <rect x="0" y="292" width="1130" height="108" rx="8" fill="#141b24"/>
 
-  <text x="20" y="131" font-size="26" fill="#8a94a3">Тикетов сошлось</text>
-  <text x="370" y="134" text-anchor="middle" font-size="34"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
-  <text x="588" y="134" text-anchor="middle" font-size="34"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
-  <text x="806" y="134" text-anchor="middle" font-size="34"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
-  <text x="1024" y="134" text-anchor="middle" font-size="34"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
+  <text x="20" y="140" font-size="28" fill="#8a94a3">Тикетов сошлось</text>
+  <text x="370" y="143" text-anchor="middle" font-size="38"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
+  <text x="588" y="143" text-anchor="middle" font-size="38"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
+  <text x="806" y="143" text-anchor="middle" font-size="38"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
+  <text x="1024" y="143" text-anchor="middle" font-size="38"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
 
-  <text x="20" y="223" font-size="26" fill="#8a94a3">Штатные тесты</text>
-  <text x="370" y="226" text-anchor="middle" font-size="34"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
-  <text x="588" y="226" text-anchor="middle" font-size="34"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
-  <text x="806" y="226" text-anchor="middle" font-size="34"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
-  <text x="1024" y="226" text-anchor="middle" font-size="34"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
+  <text x="20" y="248" font-size="28" fill="#8a94a3">Штатные тесты</text>
+  <text x="370" y="251" text-anchor="middle" font-size="38"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
+  <text x="588" y="251" text-anchor="middle" font-size="38"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
+  <text x="806" y="251" text-anchor="middle" font-size="38"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
+  <text x="1024" y="251" text-anchor="middle" font-size="38"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
 
-  <text x="20" y="315" font-size="26" fill="#8a94a3">Контракт зелёный</text>
-  <text x="370" y="318" text-anchor="middle" font-size="34"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
-  <text x="588" y="318" text-anchor="middle" font-size="34"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
-  <text x="806" y="318" text-anchor="middle" font-size="34"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
-  <text x="1024" y="318" text-anchor="middle" font-size="34"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
-
-  <line x1="0" y1="374" x2="1130" y2="374" stroke="#2f3b4a" stroke-width="1"/>
-  <text x="20" y="410" font-size="24" fill="#8a94a3">Тикетов с &gt;1 итерацией — везде 1 (тикет 1, контракт-гейт), не язык</text>
+  <text x="20" y="356" font-size="28" fill="#8a94a3">Контракт зелёный</text>
+  <text x="370" y="359" text-anchor="middle" font-size="38"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
+  <text x="588" y="359" text-anchor="middle" font-size="38"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
+  <text x="806" y="359" text-anchor="middle" font-size="38"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
+  <text x="1024" y="359" text-anchor="middle" font-size="38"><tspan fill="#0ea472" font-weight="700">✓</tspan> <tspan fill="#dfe4ea" font-weight="700">11/11</tspan></text>
 </svg>

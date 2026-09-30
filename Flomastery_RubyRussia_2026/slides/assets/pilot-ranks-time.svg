@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" font-family="'Helvetica Neue', Arial, 'Liberation Sans', sans-serif" viewBox="0 36 1130 340" role="img" aria-label="Средний ранг по времени прогона, по 11 тикетам, шкала от нуля, 1 — быстрее всех, 4 — медленнее всех, от лучшего к худшему: Python 1.64; JavaScript 2.55; TypeScript 2.73; Ruby 3.09">
+  <line x1="0" y1="320" x2="1130" y2="320" stroke="#2f3b4a" stroke-width="1"/>
+  <path d="M70,320 L70,197.1 Q70,189.1 78,189.1 L242,189.1 Q250,189.1 250,197.1 L250,320 Z" fill="#199e70"/>
+  <text x="160" y="177.1" text-anchor="middle" font-size="30" font-weight="700" fill="#dfe4ea">1.64</text>
+  <text x="160" y="356" text-anchor="middle" font-size="28" fill="#dfe4ea">Python</text>
+  <path d="M340,320 L340,124.4 Q340,116.4 348,116.4 L512,116.4 Q520,116.4 520,124.4 L520,320 Z" fill="#c98500"/>
+  <text x="430" y="104.4" text-anchor="middle" font-size="30" font-weight="700" fill="#dfe4ea">2.55</text>
+  <text x="430" y="356" text-anchor="middle" font-size="28" fill="#dfe4ea">JavaScript</text>
+  <path d="M610,320 L610,109.8 Q610,101.8 618,101.8 L782,101.8 Q790,101.8 790,109.8 L790,320 Z" fill="#3987e5"/>
+  <text x="700" y="89.8" text-anchor="middle" font-size="30" font-weight="700" fill="#dfe4ea">2.73</text>
+  <text x="700" y="356" text-anchor="middle" font-size="28" fill="#dfe4ea">TypeScript</text>
+  <path d="M880,320 L880,80.7 Q880,72.7 888,72.7 L1052,72.7 Q1060,72.7 1060,80.7 L1060,320 Z" fill="#e66767"/>
+  <text x="970" y="60.7" text-anchor="middle" font-size="30" font-weight="700" fill="#dfe4ea">3.09</text>
+  <text x="970" y="356" text-anchor="middle" font-size="28" fill="#dfe4ea">Ruby</text>
+</svg>

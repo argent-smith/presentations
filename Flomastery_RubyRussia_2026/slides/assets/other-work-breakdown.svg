@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" font-family="'Helvetica Neue', Arial, 'Liberation Sans', sans-serif" viewBox="0 0 1130 424" role="img" aria-label="Из чего состоит прочее work-время, минуты, сумма по 11 каноническим тикетам: Ruby — сборка образа вне run-tests 5.24, ручная проверка: сервер, клиент, curl 0.63, очистка: данные, контейнеры 0.73, мелочи: файлы, прочий bash 0.15, итого 6.75; Python — сборка образа вне run-tests 0.00, ручная проверка: сервер, клиент, curl 2.15, очистка: данные, контейнеры 0.82, мелочи: файлы, прочий bash 0.20, итого 3.17">
+  <rect x="500" y="8" width="22" height="22" fill="#e66767"/>
+  <text x="532" y="27" font-size="24" fill="#dfe4ea">Ruby · 6.75 мин</text>
+  <rect x="740" y="8" width="22" height="22" fill="#199e70"/>
+  <text x="772" y="27" font-size="24" fill="#dfe4ea">Python · 3.17 мин</text>
+  <line x1="500" y1="54" x2="500" y2="422" stroke="#2f3b4a" stroke-width="1"/>
+  <text x="0" y="118.0" font-size="24" fill="#dfe4ea">Сборка образа вне run-tests</text>
+  <rect x="500" y="76" width="523.7" height="30" rx="4" fill="#e66767"/>
+  <text x="1035.7" y="99" font-size="22" font-weight="700" fill="#dfe4ea">5.24</text>
+  <text x="512.0" y="135" font-size="22" font-weight="700" fill="#dfe4ea">0.00</text>
+  <text x="0" y="210.0" font-size="24" fill="#dfe4ea">Ручная проверка: сервер, клиент, curl</text>
+  <rect x="500" y="168" width="63.3" height="30" rx="4" fill="#e66767"/>
+  <text x="575.3" y="191" font-size="22" font-weight="700" fill="#dfe4ea">0.63</text>
+  <rect x="500" y="204" width="215.3" height="30" rx="4" fill="#199e70"/>
+  <text x="727.3" y="227" font-size="22" font-weight="700" fill="#dfe4ea">2.15</text>
+  <text x="0" y="302.0" font-size="24" fill="#dfe4ea">Очистка: данные, контейнеры</text>
+  <rect x="500" y="260" width="73.0" height="30" rx="4" fill="#e66767"/>
+  <text x="585.0" y="283" font-size="22" font-weight="700" fill="#dfe4ea">0.73</text>
+  <rect x="500" y="296" width="82.1" height="30" rx="4" fill="#199e70"/>
+  <text x="594.1" y="319" font-size="22" font-weight="700" fill="#dfe4ea">0.82</text>
+  <text x="0" y="394.0" font-size="24" fill="#dfe4ea">Мелочи: файлы, прочий bash</text>
+  <rect x="500" y="352" width="14.7" height="30" rx="4" fill="#e66767"/>
+  <text x="526.7" y="375" font-size="22" font-weight="700" fill="#dfe4ea">0.15</text>
+  <rect x="500" y="388" width="20.0" height="30" rx="4" fill="#199e70"/>
+  <text x="532.0" y="411" font-size="22" font-weight="700" fill="#dfe4ea">0.20</text>
+</svg>

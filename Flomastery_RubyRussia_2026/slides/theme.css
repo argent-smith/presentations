@@ -207,6 +207,37 @@ section.quote p {
   flex: none;
 }
 
+/* Слайд с двумя pie-chart рядом: воображаемое и реальное распределение */
+.pie-pair {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 2.4em;
+  margin-top: 0.4em;
+}
+
+.pie-pair figure {
+  margin: 0;
+  text-align: center;
+}
+
+.pie-pair figcaption {
+  color: var(--c-accent);
+  font-size: 0.85em;
+  font-weight: 700;
+  margin-bottom: 0.3em;
+}
+
+.pie-pair img { display: block; }
+
+/* Строка источника данных под диаграммой */
+.source {
+  color: var(--c-muted);
+  font-size: 0.62em;
+  text-align: center;
+  margin-top: 0.8em;
+}
+
 /* Ростер языков: карточки с цветной полосой + инварианты стенда */
 .lang-grid {
   display: grid;
@@ -250,6 +281,49 @@ section.quote p {
   display: block;
   font-size: 1.2em;
   margin-bottom: 0.25em;
+}
+
+/* Пара статов-улик (сравнение одного вызова между языками) */
+.stat-pair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  margin-top: 1.6em;
+}
+
+.stat-tile {
+  border-top: 6px solid var(--sc);
+  background: var(--c-panel);
+  border-radius: 6px;
+  padding: 1.4em 2.2em;
+  text-align: center;
+  min-width: 260px;
+}
+
+.stat-value {
+  font-size: 2.2em;
+  font-weight: 700;
+  color: var(--c-fg);
+}
+
+.stat-label {
+  color: var(--c-muted);
+  font-size: 0.72em;
+  margin-top: 0.5em;
+}
+
+.stat-versus {
+  color: var(--c-muted);
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+.stat-caption {
+  color: var(--c-muted);
+  font-size: 0.72em;
+  text-align: center;
+  margin-top: 1.6em;
 }
 
 /* Диаграмма цикла на тикет */

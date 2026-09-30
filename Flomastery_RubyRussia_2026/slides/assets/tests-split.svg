@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" font-family="'Helvetica Neue', Arial, 'Liberation Sans', sans-serif" viewBox="0 0 1130 410" role="img" aria-label="Что внутри сегмента «тесты», минуты, сумма по 11 каноническим тикетам: Ruby — итого 14.62, из них сборка образа 13.85, прогон тестов 0.77; Python — итого 3.83, из них сборка образа 1.81, прогон тестов 2.02">
+  <line x1="0" y1="320" x2="1130" y2="320" stroke="#2f3b4a" stroke-width="1"/>
+  <text x="380" y="75.5" text-anchor="middle" font-size="32" font-weight="700" fill="#dfe4ea">14.62 мин</text>
+  <path d="M260,98.8 L260,95.5 Q260,87.5 268,87.5 L492,87.5 Q500,87.5 500,95.5 L500,98.8 Z" fill="#e66767" fill-opacity="0.42"/>
+  <rect x="260" y="99.8" width="240" height="220.2" fill="#e66767"/>
+  <text x="380" y="355" text-anchor="middle" font-size="28" fill="#dfe4ea">Ruby</text>
+  <text x="246" y="101.7" text-anchor="end" font-size="22" fill="#dfe4ea">прогон тестов <tspan font-weight="700">0.77</tspan></text>
+  <text x="246" y="217.9" text-anchor="end" font-size="22" fill="#dfe4ea">сборка образа <tspan font-weight="700">13.85</tspan></text>
+  <text x="780" y="247.1" text-anchor="middle" font-size="32" font-weight="700" fill="#dfe4ea">3.83 мин</text>
+  <path d="M660,290.2 L660,267.1 Q660,259.1 668,259.1 L892,259.1 Q900,259.1 900,267.1 L900,290.2 Z" fill="#199e70" fill-opacity="0.42"/>
+  <rect x="660" y="291.2" width="240" height="28.8" fill="#199e70"/>
+  <text x="780" y="355" text-anchor="middle" font-size="28" fill="#dfe4ea">Python</text>
+  <text x="914" y="283.2" text-anchor="start" font-size="22" fill="#dfe4ea">прогон тестов <tspan font-weight="700">2.02</tspan></text>
+  <text x="914" y="313.6" text-anchor="start" font-size="22" fill="#dfe4ea">сборка образа <tspan font-weight="700">1.81</tspan></text>
+</svg>
