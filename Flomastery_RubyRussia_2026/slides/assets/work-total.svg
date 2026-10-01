@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" font-family="'Helvetica Neue', Arial, 'Liberation Sans', sans-serif" viewBox="0 0 1130 410" role="img" aria-label="Куда уходит work-время, минуты, сумма по 11 каноническим тикетам: Ruby — итого 21.36, из них сборка образа 19.09, остальное 2.28; Python — итого 7.01, из них сборка образа 1.81, остальное 5.20">
+  <line x1="0" y1="320" x2="1130" y2="320" stroke="#2f3b4a" stroke-width="1"/>
+  <text x="380" y="75.1" text-anchor="middle" font-size="32" font-weight="700" fill="#dfe4ea">21.36 мин</text>
+  <path d="M260,111.0 L260,95.1 Q260,87.1 268,87.1 L492,87.1 Q500,87.1 500,95.1 L500,111.0 Z" fill="#e66767" fill-opacity="0.42"/>
+  <rect x="260" y="112.0" width="240" height="208.0" fill="#e66767"/>
+  <text x="380" y="355" text-anchor="middle" font-size="28" fill="#dfe4ea">Ruby</text>
+  <text x="246" y="107.5" text-anchor="end" font-size="22" fill="#dfe4ea">остальное <tspan font-weight="700">2.28</tspan></text>
+  <text x="246" y="224.0" text-anchor="end" font-size="22" fill="#dfe4ea">сборка образа <tspan font-weight="700">19.09</tspan></text>
+  <text x="780" y="231.6" text-anchor="middle" font-size="32" font-weight="700" fill="#dfe4ea">7.01 мин</text>
+  <path d="M660,299.3 L660,251.6 Q660,243.6 668,243.6 L892,243.6 Q900,243.6 900,251.6 L900,299.3 Z" fill="#199e70" fill-opacity="0.42"/>
+  <rect x="660" y="300.3" width="240" height="19.7" fill="#199e70"/>
+  <text x="780" y="355" text-anchor="middle" font-size="28" fill="#dfe4ea">Python</text>
+  <text x="914" y="279.9" text-anchor="start" font-size="22" fill="#dfe4ea">остальное <tspan font-weight="700">5.20</tspan></text>
+  <text x="914" y="318.1" text-anchor="start" font-size="22" fill="#dfe4ea">сборка образа <tspan font-weight="700">1.81</tspan></text>
+</svg>

@@ -1,0 +1,430 @@
+/* @theme flomastery */
+/*
+ * Тема доклада «На вкус и цвет все фломастеры разные. Особенно если вы пишете на Ruby».
+ * Тёмный вариант: тёмный фон, акцент — розово-красный, таблицы со светлым текстом
+ * и видимыми границами, блок кода — тёмная карточка с палитрой подсветки One Dark.
+ * Расширяет встроенную тему Marp default.
+ *
+ * Регистрируется в сборке через --theme-set, во front-matter слайдов — `theme: flomastery`.
+ */
+
+@import 'default';
+
+:root {
+  --c-bg: #0f141a;
+  --c-fg: #dfe4ea;
+  --c-accent: #ff5d7d;
+  --c-hl: #ffd166;
+  --c-muted: #8a94a3;
+  --c-panel: #161d26;
+  --c-line: #2f3b4a;
+}
+
+section {
+  background: var(--c-bg);
+  color: var(--c-fg);
+  font-family: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+  font-size: 28px;
+  padding: 64px 76px;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--c-accent);
+  font-weight: 700;
+}
+
+h2 {
+  border-bottom: 1px solid var(--c-line);
+  padding-bottom: 0.2em;
+}
+
+strong { color: var(--c-hl); }
+a { color: var(--c-accent); }
+
+/* Инлайн-код в тексте — тёмная плашка */
+code {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  background: #1d2530;
+  color: #e6edf3;
+  padding: 0.08em 0.3em;
+  border-radius: 3px;
+}
+
+/* Блок кода — тёмная карточка */
+pre {
+  font-size: 0.7em;
+  background: #282c34;
+  border: 1px solid #21252b;
+  border-radius: 6px;
+}
+
+pre code,
+pre code.hljs {
+  background: transparent;
+  color: #abb2bf;
+}
+
+/* Подсветка синтаксиса — палитра One Dark (highlight.js токены) */
+.hljs-comment,
+.hljs-quote { color: #5c6370; font-style: italic; }
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-type { color: #c678dd; }
+.hljs-string,
+.hljs-doctag,
+.hljs-regexp { color: #98c379; }
+.hljs-number,
+.hljs-literal { color: #d19a66; }
+.hljs-symbol,
+.hljs-attr,
+.hljs-attribute { color: #56b6c2; }
+.hljs-built_in { color: #e6c07b; }
+.hljs-title,
+.hljs-title.function_,
+.hljs-name { color: #61afef; }
+.hljs-params,
+.hljs-variable,
+.hljs-subst { color: #abb2bf; }
+.hljs-meta { color: #5c6370; }
+
+blockquote {
+  border-left: 3px solid var(--c-accent);
+  color: var(--c-muted);
+}
+
+/* Таблица — читаемая на тёмном фоне */
+table {
+  border-collapse: collapse;
+  font-size: 0.92em;
+}
+
+th,
+td {
+  border: 1px solid var(--c-line);
+  padding: 0.34em 0.72em;
+  color: var(--c-fg);
+  background: transparent;
+}
+
+thead th {
+  background: #1f2a37;
+  color: #ffffff;
+  border-bottom: 2px solid var(--c-accent);
+}
+
+tbody tr:nth-child(odd) td { background: #141b24; }
+tbody tr:nth-child(even) td { background: #0f141a; }
+
+/* Титульный слайд: <!-- _class: lead --> */
+section.lead {
+  justify-content: center;
+  text-align: center;
+}
+
+section.lead h1 { font-size: 2.4em; }
+section.lead .subtitle { color: var(--c-muted); }
+
+/* Разделитель секции: <!-- _class: section --> */
+section.section {
+  justify-content: center;
+  background: var(--c-bg);
+}
+
+section.section h1 {
+  font-size: 3em;
+  color: var(--c-accent);
+}
+
+/* Слайд плана: крупный нумерованный список рубрик — <!-- _class: plan --> */
+section.plan ol {
+  font-size: 1.5em;
+  line-height: 1.5;
+}
+
+section.plan li { margin: 0.1em 0; }
+
+/* Слайд-цитата: вывод крупно по центру, в стиле «цитаты великих» — <!-- _class: quote --> */
+section.quote {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+section.quote::before {
+  content: "\201C";
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 5em;
+  line-height: 1;
+  color: var(--c-accent);
+  margin-bottom: -0.15em;
+}
+
+section.quote p {
+  max-width: 880px;
+  margin: 0 auto;
+  font-size: 1.8em;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--c-fg);
+}
+
+/* Две колонки: обернуть содержимое в <div class="columns">...</div> (нужен флаг --html) */
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4em;
+}
+
+.columns > div + div {
+  border-left: 1px solid var(--c-line);
+  padding-left: 1.4em;
+}
+
+/* Pie-chart слайд: SVG слева, легенда справа */
+.pie-wrap {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  margin-top: 0.6em;
+}
+
+.pie-wrap img { flex: none; }
+
+.pie-legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+}
+
+.pie-legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0.5em 0;
+}
+
+.pie-legend .swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  flex: none;
+}
+
+/* Слайд с двумя pie-chart рядом: воображаемое и реальное распределение */
+.pie-pair {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 2.4em;
+  margin-top: 0.4em;
+}
+
+.pie-pair figure {
+  margin: 0;
+  text-align: center;
+}
+
+.pie-pair figcaption {
+  color: var(--c-accent);
+  font-size: 0.85em;
+  font-weight: 700;
+  margin-bottom: 0.3em;
+}
+
+.pie-pair img { display: block; }
+
+/* Строка источника данных под диаграммой */
+.source {
+  color: var(--c-muted);
+  font-size: 0.62em;
+  text-align: center;
+  margin-top: 0.8em;
+}
+
+/* Ростер языков: карточки с цветной полосой + инварианты стенда */
+.lang-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+  margin-top: 0.8em;
+}
+
+.lang-card {
+  border-top: 6px solid var(--lc);
+  background: var(--c-panel);
+  border-radius: 6px;
+  padding: 1.2em 0.6em;
+  text-align: center;
+}
+
+.lc-name {
+  font-weight: 700;
+  font-size: 1.05em;
+  color: var(--c-fg);
+}
+
+.lang-note {
+  color: var(--c-muted);
+  font-size: 0.68em;
+  margin-top: 0.7em;
+}
+
+.invariants {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+  margin-top: 1.8em;
+  font-size: 0.66em;
+  color: var(--c-muted);
+  border-top: 1px solid var(--c-line);
+  padding-top: 0.8em;
+}
+
+.invariants strong {
+  display: block;
+  font-size: 1.2em;
+  margin-bottom: 0.25em;
+}
+
+/* Пара статов-улик (сравнение одного вызова между языками) */
+.stat-pair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  margin-top: 1.6em;
+}
+
+.stat-tile {
+  border-top: 6px solid var(--sc);
+  background: var(--c-panel);
+  border-radius: 6px;
+  padding: 1.4em 2.2em;
+  text-align: center;
+  min-width: 260px;
+}
+
+.stat-value {
+  font-size: 2.2em;
+  font-weight: 700;
+  color: var(--c-fg);
+}
+
+.stat-label {
+  color: var(--c-muted);
+  font-size: 0.72em;
+  margin-top: 0.5em;
+}
+
+.stat-versus {
+  color: var(--c-muted);
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+.stat-caption {
+  color: var(--c-muted);
+  font-size: 0.72em;
+  text-align: center;
+  margin-top: 1.6em;
+}
+
+/* Диаграмма цикла на тикет */
+.cycle-figure {
+  margin: 0.6em 0 0;
+  text-align: center;
+}
+
+.cycle-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cycle-figure figcaption {
+  color: var(--c-muted);
+  font-size: 0.72em;
+  margin-top: 0.5em;
+}
+
+.cycle-figure figcaption ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0;
+  padding-left: 1.1em;
+}
+
+.cycle-figure figcaption li {
+  margin: 0.2em 0;
+}
+
+/* QR-плейсхолдер на слайде репозитория */
+.qr-wrap {
+  display: flex;
+  align-items: center;
+  gap: 2.4em;
+  margin-top: 1em;
+}
+
+.qr-wrap img { flex: none; }
+
+/* Два QR рядом с подписью под каждым (финальный слайд) */
+.qr-pair {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4em;
+  margin-top: 1.2em;
+}
+
+.qr-pair figure {
+  margin: 0;
+  text-align: center;
+}
+
+.qr-pair img {
+  display: block;
+  margin: 0 auto;
+  background: #fff;
+  image-rendering: pixelated;
+}
+
+.qr-pair figcaption {
+  margin-top: 0.6em;
+  font-size: 0.8em;
+  color: var(--c-muted);
+}
+
+.qr-caption {
+  font-size: 0.9em;
+}
+
+.qr-caption .placeholder-tag {
+  display: inline-block;
+  color: var(--c-hl);
+  border: 1px solid var(--c-hl);
+  border-radius: 4px;
+  padding: 0.1em 0.5em;
+  font-size: 0.7em;
+  font-weight: 700;
+  margin-bottom: 0.6em;
+}
+
+/* Сноска-оговорка «со сцены» */
+.note {
+  color: var(--c-muted);
+  font-size: 0.8em;
+  border-top: 1px solid var(--c-line);
+  padding-top: 0.4em;
+  margin-top: 0.6em;
+}
+
+section::after {
+  color: #3a4552;
+  font-size: 0.6em;
+}

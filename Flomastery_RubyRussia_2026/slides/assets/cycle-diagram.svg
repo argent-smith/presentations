@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" font-family="'Helvetica Neue', Arial, 'Liberation Sans', sans-serif" viewBox="0 0 1128 384" role="img" aria-label="Пайплайн эксперимента: claude -p headless на claude-sonnet-5 c effort xhigh реализует тикет, проходит саморевью, затем три гейта — штатные тесты, acceptance-смок, контрактная проверка по Schemathesis; при красном гейте пунктирная стрелка возвращает на фикс и повторное ревью, при всех зелёных гейтах тикет считается сошедшимся">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#dfe4ea"/>
+    </marker>
+  </defs>
+
+  <rect x="8" y="100" width="210" height="120" rx="10" fill="none" stroke="#ff5d7d" stroke-width="2.5"/>
+  <text x="113" y="146" text-anchor="middle" font-weight="700" font-size="27" fill="#ff5d7d">claude -p</text>
+  <text x="113" y="176" text-anchor="middle" font-size="19" fill="#dfe4ea">headless</text>
+  <text x="113" y="201" text-anchor="middle" font-size="19" fill="#dfe4ea">sonnet-5 · xhigh</text>
+
+  <line x1="218" y1="160" x2="256" y2="160" stroke="#dfe4ea" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <rect x="260" y="100" width="150" height="120" rx="10" fill="none" stroke="#dfe4ea" stroke-width="2"/>
+  <text x="335" y="168" text-anchor="middle" font-size="22" fill="#dfe4ea">реализация</text>
+
+  <line x1="410" y1="160" x2="448" y2="160" stroke="#dfe4ea" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <rect x="452" y="100" width="150" height="120" rx="10" fill="none" stroke="#dfe4ea" stroke-width="2"/>
+  <text x="527" y="168" text-anchor="middle" font-size="22" fill="#dfe4ea">саморевью</text>
+
+  <line x1="602" y1="160" x2="648" y2="64" stroke="#dfe4ea" stroke-width="2"/>
+  <line x1="602" y1="160" x2="648" y2="160" stroke="#dfe4ea" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="602" y1="160" x2="648" y2="256" stroke="#dfe4ea" stroke-width="2"/>
+
+  <rect x="652" y="27" width="232" height="74" rx="8" fill="none" stroke="#dfe4ea" stroke-width="2"/>
+  <text x="768" y="73" text-anchor="middle" font-size="22" fill="#dfe4ea">штатные тесты</text>
+
+  <rect x="652" y="123" width="232" height="74" rx="8" fill="none" stroke="#dfe4ea" stroke-width="2"/>
+  <text x="768" y="169" text-anchor="middle" font-size="22" fill="#dfe4ea">acceptance-смок</text>
+
+  <rect x="652" y="219" width="232" height="74" rx="8" fill="none" stroke="#dfe4ea" stroke-width="2"/>
+  <text x="768" y="250" text-anchor="middle" font-size="22" fill="#dfe4ea">контракт</text>
+  <text x="768" y="275" text-anchor="middle" font-size="18" fill="#dfe4ea">(Schemathesis)</text>
+
+  <line x1="884" y1="64" x2="920" y2="160" stroke="#dfe4ea" stroke-width="2"/>
+  <line x1="884" y1="160" x2="920" y2="160" stroke="#dfe4ea" stroke-width="2"/>
+  <line x1="884" y1="256" x2="920" y2="160" stroke="#dfe4ea" stroke-width="2"/>
+  <line x1="920" y1="160" x2="940" y2="160" stroke="#dfe4ea" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="1034" y="86" text-anchor="middle" font-size="19" fill="#ffd166">все зелёные</text>
+
+  <rect x="944" y="100" width="176" height="120" rx="10" fill="none" stroke="#ffd166" stroke-width="2.5"/>
+  <text x="1032" y="152" text-anchor="middle" font-size="23" font-weight="700" fill="#ffd166">сошлось</text>
+  <text x="1032" y="180" text-anchor="middle" font-size="23" font-weight="700" fill="#ffd166">/ сдалось</text>
+
+  <polyline points="768,293 768,338 335,338 335,224" fill="none" stroke="#dfe4ea" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+  <text x="552" y="371" text-anchor="middle" font-size="20" fill="#dfe4ea">фикс — если хоть один гейт красный</text>
+</svg>

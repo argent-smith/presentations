@@ -1,0 +1,10 @@
+# Промежуточная HTML-сборка и рабочие артефакты Marp.
+# Коммитятся только источник (slides/) и финальный presentation.pdf.
+presentation.html
+*.html
+exports/
+.marp/
+*.tmp
+
+# Локальные настройки Claude Code (специфичны для машины, не для команды)
+.claude/settings.local.json

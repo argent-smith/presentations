@@ -1,0 +1,53 @@
+# На вкус и цвет все фломастеры разные. Особенно если вы пишете на Ruby
+
+Доклад для RubyRussia 2026 (Москва, 2 октября 2026). Эмпирическая проверка
+гипотезы о том, что ИИ-агенты неравнодушны к языку программирования не из-за
+качеств языка, а из-за объёма его кода в обучающей выборке модели.
+
+Сегодня в докладе — диагноз, дизайн эксперимента и первые наблюдения, не готовые
+выводы. «Что делать на нелюбимом стеке» — тема отдельного доклада.
+
+## Структура папки
+
+- `slides/slides.md` — исходник презентации в формате Marp Markdown
+- `slides/theme.css` — тема оформления (`flomastery`), расширяет встроенную `default`
+- `slides/assets/` — изображения и векторные вставки
+- `docker-compose.yml` — конфигурация контейнера Marp CLI (образ, монтирование, порт)
+- `build.sh` — сборка через `docker compose run`
+- `Makefile` — короткие цели для ручного запуска (`make help`)
+- `presentation.pdf` — собранная презентация (коммитится)
+
+Промежуточный `presentation.html` и прочие артефакты сборки в репозиторий не
+попадают, см. `.gitignore`.
+
+## Сборка
+
+Движок — [Marp CLI](https://github.com/marp-team/marp-cli), закреплён образом
+`marpteam/marp-cli:v4.5.1` в `docker-compose.yml`. Локально нужен только Docker.
+
+```sh
+./build.sh          # presentation.pdf
+./build.sh html     # presentation.html
+./build.sh all      # оба формата
+./build.sh serve    # живой предпросмотр на http://localhost:8080
+
+# то же через make
+make pdf
+make serve
+```
+
+Сборка идёт в контейнере (`docker compose run`), версия инструмента задана
+тегом образа — результат не зависит от локального Chromium и набора шрифтов.
+
+## Источник содержания
+
+Тезисный план и данные, на которые опираются секции, — в репозитории
+эксперимента `llm-lang-experiment`:
+
+- `docs/TALK-OUTLINE-rubyrussia-2026.md` — по-секционный план
+- `docs/CFP RubyRussia 2026.md` — текст заявки
+- `docs/PILOT-COMPARISON-talk-languages.md` — сетки и ранги по четырём языкам доклада
+- `docs/MARKET-PREVALENCE-experiment-languages.md` — объёмы корпусов, рыночный контекст
+
+Слайды собраны по этому плану, готовая версия — `presentation.pdf`.
+Репозиторий эксперимента: <https://github.com/argent-smith/llm-lang-experiment>.

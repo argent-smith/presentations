@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" font-family="'Helvetica Neue', Arial, 'Liberation Sans', sans-serif" viewBox="0 0 1130 408" role="img" aria-label="Первый вызов run-tests в одном и том же тикете, секунды, Ruby против Python: тикет 2 — Ruby 98.8, Python 11.2, в 8.8 раза; тикет 3 — Ruby 98.0, Python 8.8, в 11.1 раза; тикет 4 — Ruby 97.4, Python 8.7, в 11.2 раза; тикет 5 — Ruby 101.9, Python 9.8, в 10.4 раза; тикет 7 — Ruby 107.9, Python 25.3, в 4.3 раза; тикет 8 — Ruby 105.9, Python 15.6, в 6.8 раза; тикет 9 — Ruby 115.8, Python 19.4, в 6.0 раза; тикет 10 — Ruby 110.9, Python 27.3, в 4.1 раза">
+  <rect x="380" y="6" width="22" height="22" fill="#e66767"/>
+  <text x="412" y="25" font-size="24" fill="#dfe4ea">Ruby</text>
+  <rect x="560" y="6" width="22" height="22" fill="#199e70"/>
+  <text x="592" y="25" font-size="24" fill="#dfe4ea">Python</text>
+  <line x1="0" y1="330" x2="1130" y2="330" stroke="#2f3b4a" stroke-width="1"/>
+  <path d="M15,330 L15,138.4 Q15,132.4 21,132.4 L61,132.4 Q67,132.4 67,138.4 L67,330 Z" fill="#e66767"/>
+  <text x="41" y="124.4" text-anchor="middle" font-size="22" font-weight="700" fill="#dfe4ea">98.8</text>
+  <path d="M73,330 L73,313.6 Q73,307.6 79,307.6 L119,307.6 Q125,307.6 125,313.6 L125,330 Z" fill="#199e70"/>
+  <text x="99" y="299.6" text-anchor="middle" font-size="22" font-weight="700" fill="#dfe4ea">11.2</text>
+  <text x="70" y="362" text-anchor="middle" font-size="22" fill="#8a94a3">тикет 2</text>
+  <text x="70" y="396" text-anchor="middle" font-size="26" font-weight="700" fill="#ffd166">×8.8</text>
+  <path d="M155,330 L155,140.1 Q155,134.1 161,134.1 L201,134.1 Q207,134.1 207,140.1 L207,330 Z" fill="#e66767"/>
+  <text x="181" y="126.1" text-anchor="middle" font-size="22" font-weight="700" fill="#dfe4ea">98.0</text>
+  <path d="M213,330 L213,318.3 Q213,312.3 219,312.3 L259,312.3 Q265,312.3 265,318.3 L265,330 Z" fill="#199e70"/>
+  <text x="239" y="304.3" text-anchor="middle" font-size="22" font-weight="700" fill="#dfe4ea">8.8</text>
+  <text x="210" y="362" text-anchor="middle" font-size="22" fill="#8a94a3">тикет 3</text>
+  <text x="210" y="396" text-anchor="middle" font-size="26" font-weight="700" fill="#ffd166">×11.1</text>
+  <path d="M295,330 L295,141.3 Q295,135.3 301,135.3 L341,135.3 Q347,135.3 347,141.3 L347,330 Z" fill="#e66767"/>
+  <text x="321" y="127.3" text-anchor="middle" font-size="22" font-weight="700" fill="#dfe4ea">97.4</text>
+  <path d="M353,330 L353,318.6 Q353,312.6 359,312.6 L399,312.6 Q405,312.6 405,318.6 L405,330 Z" fill="#199e70"/>
+  <text x="379" y="304.6" text-anchor="middle" font-size="22" font-weight="700" fill="#dfe4ea">8.7</text>
+  <text x="350" y="362" text-anchor="middle" font-size="22" fill="#8a94a3">тикет 4</text>
+  <text x="350" y="396" text-anchor="middle" font-size="26" font-weight="700" fill="#ffd166">×11.2</text>
+  <path d="M435,330 L435,132.2 Q435,126.2 441,126.2 L481,126.2 Q487,126.2 487,132.2 L487,330 Z" fill="#e66767"/>
+  <text x="461" y="118.2" text-anchor="middle" font-size="22" font-weight="700" fill="#dfe4ea">101.9</text>
+  <path d="M493,330 L493,316.4 Q493,310.4 499,310.4 L539,310.4 Q545,310.4 545,316.4 L545,330 Z" fill="#199e70"/>
+  <text x="519" y="302.4" text-anchor="middle" font-size="22" font-weight="700" fill="#dfe4ea">9.8</text>
+  <text x="490" y="362" text-anchor="middle" font-size="22" fill="#8a94a3">тикет 5</text>
+  <text x="490" y="396" text-anchor="middle" font-size="26" font-weight="700" fill="#ffd166">×10.4</text>
+  <path d="M575,330 L575,120.2 Q575,114.2 581,114.2 L621,114.2 Q627,114.2 627,120.2 L627,330 Z" fill="#e66767"/>
+  <text x="601" y="106.2" text-anchor="middle" font-size="22" font-weight="700" fill="#dfe4ea">107.9</text>
+  <path d="M633,330 L633,285.3 Q633,279.3 639,279.3 L679,279.3 Q685,279.3 685,285.3 L685,330 Z" fill="#199e70"/>
+  <text x="659" y="271.3" text-anchor="middle" font-size="22" font-weight="700" fill="#dfe4ea">25.3</text>
+  <text x="630" y="362" text-anchor="middle" font-size="22" fill="#8a94a3">тикет 7</text>
+  <text x="630" y="396" text-anchor="middle" font-size="26" font-weight="700" fill="#ffd166">×4.3</text>
+  <path d="M715,330 L715,124.3 Q715,118.3 721,118.3 L761,118.3 Q767,118.3 767,124.3 L767,330 Z" fill="#e66767"/>
+  <text x="741" y="110.3" text-anchor="middle" font-size="22" font-weight="700" fill="#dfe4ea">105.9</text>
+  <path d="M773,330 L773,304.8 Q773,298.8 779,298.8 L819,298.8 Q825,298.8 825,304.8 L825,330 Z" fill="#199e70"/>
+  <text x="799" y="290.8" text-anchor="middle" font-size="22" font-weight="700" fill="#dfe4ea">15.6</text>
+  <text x="770" y="362" text-anchor="middle" font-size="22" fill="#8a94a3">тикет 8</text>
+  <text x="770" y="396" text-anchor="middle" font-size="26" font-weight="700" fill="#ffd166">×6.8</text>
+  <path d="M855,330 L855,104.5 Q855,98.5 861,98.5 L901,98.5 Q907,98.5 907,104.5 L907,330 Z" fill="#e66767"/>
+  <text x="881" y="90.5" text-anchor="middle" font-size="22" font-weight="700" fill="#dfe4ea">115.8</text>
+  <path d="M913,330 L913,297.1 Q913,291.1 919,291.1 L959,291.1 Q965,291.1 965,297.1 L965,330 Z" fill="#199e70"/>
+  <text x="939" y="283.1" text-anchor="middle" font-size="22" font-weight="700" fill="#dfe4ea">19.4</text>
+  <text x="910" y="362" text-anchor="middle" font-size="22" fill="#8a94a3">тикет 9</text>
+  <text x="910" y="396" text-anchor="middle" font-size="26" font-weight="700" fill="#ffd166">×6.0</text>
+  <path d="M995,330 L995,114.2 Q995,108.2 1001,108.2 L1041,108.2 Q1047,108.2 1047,114.2 L1047,330 Z" fill="#e66767"/>
+  <text x="1021" y="100.2" text-anchor="middle" font-size="22" font-weight="700" fill="#dfe4ea">110.9</text>
+  <path d="M1053,330 L1053,281.4 Q1053,275.4 1059,275.4 L1099,275.4 Q1105,275.4 1105,281.4 L1105,330 Z" fill="#199e70"/>
+  <text x="1079" y="267.4" text-anchor="middle" font-size="22" font-weight="700" fill="#dfe4ea">27.3</text>
+  <text x="1050" y="362" text-anchor="middle" font-size="22" fill="#8a94a3">тикет 10</text>
+  <text x="1050" y="396" text-anchor="middle" font-size="26" font-weight="700" fill="#ffd166">×4.1</text>
+</svg>

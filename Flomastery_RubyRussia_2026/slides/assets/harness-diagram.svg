@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" font-family="'Helvetica Neue', Arial, 'Liberation Sans', sans-serif" viewBox="0 0 1128 392" role="img" aria-label="Устройство харнесса: с хоста в Docker-контейнер харнесса примонтирована только директория пилота, остальной хост — ssh, мета-репозиторий с эталонной реализацией, другие сессии — недоступен; внутри контейнера claude -p headless на sonnet-5 с effort xhigh работает с кодом тикета">
+  <defs>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ff5d7d"/>
+    </marker>
+  </defs>
+
+  <rect x="8" y="8" width="420" height="376" rx="14" fill="none" stroke="#dfe4ea" stroke-width="2" stroke-dasharray="8,5" opacity="0.7"/>
+  <text x="32" y="46" font-size="22" font-weight="700" fill="#dfe4ea" opacity="0.9">Хост (macOS)</text>
+
+  <rect x="32" y="64" width="300" height="60" rx="8" fill="none" stroke="#dfe4ea" stroke-width="1.5" opacity="0.5"/>
+  <text x="182" y="101" text-anchor="middle" font-size="20" fill="#dfe4ea" opacity="0.7">~/.ssh, credentials</text>
+  <line x1="332" y1="94" x2="378" y2="94" stroke="#dfe4ea" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.5"/>
+  <line x1="372" y1="86" x2="388" y2="102" stroke="#dfe4ea" stroke-width="2" opacity="0.7"/>
+  <line x1="388" y1="86" x2="372" y2="102" stroke="#dfe4ea" stroke-width="2" opacity="0.7"/>
+
+  <rect x="32" y="138" width="300" height="60" rx="8" fill="none" stroke="#dfe4ea" stroke-width="1.5" opacity="0.5"/>
+  <text x="182" y="164" text-anchor="middle" font-size="20" fill="#dfe4ea" opacity="0.7">мета-репозиторий</text>
+  <text x="182" y="186" text-anchor="middle" font-size="17" fill="#dfe4ea" opacity="0.7">(CLAUDE.md, эталон)</text>
+  <line x1="332" y1="168" x2="378" y2="168" stroke="#dfe4ea" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.5"/>
+  <line x1="372" y1="160" x2="388" y2="176" stroke="#dfe4ea" stroke-width="2" opacity="0.7"/>
+  <line x1="388" y1="160" x2="372" y2="176" stroke="#dfe4ea" stroke-width="2" opacity="0.7"/>
+
+  <rect x="32" y="212" width="300" height="60" rx="8" fill="none" stroke="#dfe4ea" stroke-width="1.5" opacity="0.5"/>
+  <text x="182" y="249" text-anchor="middle" font-size="20" fill="#dfe4ea" opacity="0.7">другие сессии, /tmp</text>
+  <line x1="332" y1="242" x2="378" y2="242" stroke="#dfe4ea" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.5"/>
+  <line x1="372" y1="234" x2="388" y2="250" stroke="#dfe4ea" stroke-width="2" opacity="0.7"/>
+  <line x1="388" y1="234" x2="372" y2="250" stroke="#dfe4ea" stroke-width="2" opacity="0.7"/>
+
+  <rect x="32" y="292" width="300" height="76" rx="8" fill="none" stroke="#ff5d7d" stroke-width="2.5"/>
+  <text x="182" y="326" text-anchor="middle" font-size="22" font-weight="700" fill="#ff5d7d">директория пилота</text>
+  <text x="182" y="353" text-anchor="middle" font-size="19" fill="#dfe4ea">/workspace</text>
+
+  <line x1="332" y1="330" x2="664" y2="262" stroke="#ff5d7d" stroke-width="3" marker-end="url(#arrow2)"/>
+  <text x="546" y="214" text-anchor="middle" font-size="19" fill="#ff5d7d">единственный</text>
+  <text x="546" y="238" text-anchor="middle" font-size="19" fill="#ff5d7d">смонтированный путь</text>
+
+  <rect x="672" y="56" width="448" height="280" rx="12" fill="none" stroke="#ff5d7d" stroke-width="2.5"/>
+  <text x="896" y="94" text-anchor="middle" font-size="22" font-weight="700" fill="#ff5d7d">Docker-контейнер харнесса</text>
+  <text x="896" y="136" text-anchor="middle" font-size="28" font-weight="700" fill="#ff5d7d">claude -p</text>
+  <text x="896" y="164" text-anchor="middle" font-size="19" fill="#dfe4ea">headless · sonnet-5 · xhigh</text>
+
+  <rect x="696" y="186" width="400" height="126" rx="8" fill="none" stroke="#dfe4ea" stroke-width="2"/>
+  <text x="896" y="226" text-anchor="middle" font-size="23" fill="#dfe4ea">код тикета</text>
+  <text x="896" y="259" text-anchor="middle" font-size="19" fill="#dfe4ea" opacity="0.8">сервер + клиент</text>
+  <text x="896" y="284" text-anchor="middle" font-size="17" fill="#dfe4ea" opacity="0.8">строится и тестируется тоже в контейнере</text>
+</svg>
