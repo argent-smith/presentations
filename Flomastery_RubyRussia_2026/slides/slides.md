@@ -214,12 +214,11 @@ notes/todo.txt    up to date
 
 <div class="qr-wrap">
 
-<img src="assets/qr-placeholder.svg" width="180" height="180" alt="Плейсхолдер QR-кода — ссылка на репозиторий появится ближе к докладу">
+<img src="assets/qr-repo.svg" width="280" height="280" alt="QR-код со ссылкой на репозиторий эксперимента: github.com/argent-smith/llm-lang-experiment">
 
 <div class="qr-caption">
-<span class="placeholder-tag">плейсхолдер</span><br>
-Репозиторий Syncbox на GitHub — ссылка и QR появятся ближе к докладу,
-когда репозиторий станет публичным.
+Репозиторий эксперимента на GitHub<br>
+<strong>github.com/argent-smith/llm-lang-experiment</strong>
 </div>
 
 </div>
