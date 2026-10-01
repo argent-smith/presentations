@@ -137,6 +137,14 @@ section.section h1 {
   color: var(--c-accent);
 }
 
+/* Слайд плана: крупный нумерованный список рубрик — <!-- _class: plan --> */
+section.plan ol {
+  font-size: 1.5em;
+  line-height: 1.5;
+}
+
+section.plan li { margin: 0.1em 0; }
+
 /* Слайд-цитата: вывод крупно по центру, в стиле «цитаты великих» — <!-- _class: quote --> */
 section.quote {
   justify-content: center;
