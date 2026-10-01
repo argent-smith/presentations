@@ -17,9 +17,8 @@ description: Доклад RubyRussia 2026. Эмпирическая провер
 <span class="subtitle">Павел Аргентов · RubyRussia 2026</span>
 
 <!--
-Каркас презентации. Наполнение секций — по docs/TALK-OUTLINE-rubyrussia-2026.md
-из репозитория эксперимента (llm-lang-experiment). Здесь только структура и опорные
-цифры, прозаический текст дописывается отдельно.
+Слайды доклада. Тезисный план — docs/TALK-OUTLINE-rubyrussia-2026.md в репозитории
+эксперимента: https://github.com/argent-smith/llm-lang-experiment
 -->
 
 ---

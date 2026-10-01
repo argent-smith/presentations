@@ -49,5 +49,5 @@ make serve
 - `docs/PILOT-COMPARISON-talk-languages.md` — сетки и ранги по четырём языкам доклада
 - `docs/MARKET-PREVALENCE-experiment-languages.md` — объёмы корпусов, рыночный контекст
 
-Текущий `slides/slides.md` — каркас: структура секций и опорные цифры,
-прозаический текст дописывается отдельно.
+Слайды собраны по этому плану, готовая версия — `presentation.pdf`.
+Репозиторий эксперимента: <https://github.com/argent-smith/llm-lang-experiment>.
