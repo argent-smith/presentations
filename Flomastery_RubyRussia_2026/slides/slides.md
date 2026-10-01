@@ -548,17 +548,20 @@ notes/todo.txt    up to date
 
 <!-- _class: lead -->
 
-# Фидбек тайм
+# Спасибо
 
-<span class="subtitle">Вопросы</span>
+<span class="subtitle">Для творческих фидбеков</span>
 
-<div class="qr-wrap" style="justify-content: center; flex-direction: column; text-align: center;">
+<div class="qr-pair">
 
-<img src="assets/qr-placeholder.svg" width="160" height="160" alt="Плейсхолдер QR-кода обратной связи от зала — появится, когда организаторы пришлют ссылку">
+<figure>
+<img src="assets/qr-feedback.gif" width="260" height="260" alt="QR-код формы обратной связи по докладу: forms.gle/fiwvHJuTj2JwvZDM9">
+<figcaption>Обратная связь по докладу</figcaption>
+</figure>
 
-<div class="qr-caption">
-<span class="placeholder-tag">плейсхолдер</span><br>
-QR для обратной связи от зала — появится, когда организаторы пришлют ссылку.
-</div>
+<figure>
+<img src="assets/qr-slides.svg" width="260" height="260" alt="QR-код со ссылкой на слайды доклада: github.com/argent-smith/presentations">
+<figcaption>Слайды доклада</figcaption>
+</figure>
 
 </div>

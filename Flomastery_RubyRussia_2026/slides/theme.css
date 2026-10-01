@@ -373,6 +373,33 @@ section.quote p {
 
 .qr-wrap img { flex: none; }
 
+/* Два QR рядом с подписью под каждым (финальный слайд) */
+.qr-pair {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4em;
+  margin-top: 1.2em;
+}
+
+.qr-pair figure {
+  margin: 0;
+  text-align: center;
+}
+
+.qr-pair img {
+  display: block;
+  margin: 0 auto;
+  background: #fff;
+  image-rendering: pixelated;
+}
+
+.qr-pair figcaption {
+  margin-top: 0.6em;
+  font-size: 0.8em;
+  color: var(--c-muted);
+}
+
 .qr-caption {
   font-size: 0.9em;
 }
