@@ -559,8 +559,8 @@ notes/todo.txt    up to date
 </figure>
 
 <figure>
-<img src="assets/qr-slides.svg" width="260" height="260" alt="QR-код со ссылкой на слайды доклада: github.com/argent-smith/presentations">
-<figcaption>Слайды доклада</figcaption>
+<img src="assets/qr-slides.svg" width="260" height="260" alt="QR-код со ссылкой на папку доклада в репозитории: github.com/argent-smith/presentations, Flomastery_RubyRussia_2026">
+<figcaption>Слайды и материалы доклада</figcaption>
 </figure>
 
 </div>

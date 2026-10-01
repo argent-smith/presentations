@@ -39,6 +39,32 @@ make serve
 Сборка идёт в контейнере (`docker compose run`), версия инструмента задана
 тегом образа — результат не зависит от локального Chromium и набора шрифтов.
 
+Если сборка PDF не завершилась за пару минут (контейнер Marp завис), остановите
+контейнер (`docker stop`) и запустите сборку заново: повторный запуск обычно
+проходит за секунды.
+
+## QR-коды
+
+QR на слайдах лежат в `slides/assets/`:
+
+- `qr-repo.svg` — репозиторий эксперимента
+  (<https://github.com/argent-smith/llm-lang-experiment>), слайд «Репозиторий»;
+- `qr-slides.svg` — эта папка на GitHub
+  (<https://github.com/argent-smith/presentations/tree/master/Flomastery_RubyRussia_2026>),
+  финальный слайд: по ссылке открывается README и `presentation.pdf`;
+- `qr-feedback.gif` — форма обратной связи по докладу, QR выдан организаторами,
+  финальный слайд.
+
+Векторные QR генерируются [segno](https://pypi.org/project/segno/):
+
+```sh
+python3 -m venv .venv-qr && .venv-qr/bin/pip install segno
+.venv-qr/bin/python -c "import segno; segno.make('<URL>', error='m').save('slides/assets/qr-slides.svg', scale=8, border=3, dark='#0f141a', light='#ffffff', xmldecl=False)"
+```
+
+После правки QR пересоберите PDF и проверьте, что код читается: например,
+отрисуйте слайд и прогоните через `cv2.QRCodeDetector` (OpenCV).
+
 ## Источник содержания
 
 Тезисный план и данные, на которые опираются секции, — в репозитории
